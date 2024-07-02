@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="assets/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Saroj's Portfolio</title>
+</head>
+
+<body>
+<!--Header Design-->
+<header class="header">
+  <a href="#home" class="logo">Portfolio</a>
+
+  <i class="fa-solid fa-bars" id="menu-icon"></i>
+  <i class="fa-solid fa-times" id="close-icon"></i>
+
+  <nav class="navbar" id="navbar">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#portfolio" class="nav-link">Portfolio</a>
+      <a href="#contact" class="nav-link">Contact</a>
+  </nav>
+</header>
+
+<!--Home Section Design-->
+<section class="home" id="home">
+  <div class="home-content">
+    <h3>Hi, Myself</h3>
+    <h1>Saroj Ghimire</h1>
+    <h3>And I'm a <span class="typing"></span></h3>
+    <p>I am a developer with a strong passion for backend web development, especially using Django. I am drawn to the complexities of backend frameworks and enjoy creating robust, scalable web applications.</p>
+    <div class="social-media">
+      <a href="https://www.facebook.com/sarojghimire090" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+      <a href="https://www.instagram.com/ghimire_saroj09/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      <a href="https://x.com/SG_CFC02CL" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/ghimire-saroj-00723024a/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://github.com/ghimiresaroj09" target="_blank"><i class="fa-brands fa-github"></i></a>
+    </div>
+    <a href="media/cv.pdf" target="_blank" class="btn"><i class="fa-solid fa-download"></i> Download CV</a>
+  </div>
+  <div class="home-img">
+    <div class="container">
+      <div class="box">
+        <div class="spin-container">
+          <div class="shape">
+            <div class="bd" style="  background-image: url(assets/Profile/profile.jpg);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--About Section Design-->
+<section class="about" id="about">
+  <div class="about-img">
+    <img src="assets/Profile/about.jpg" alt="Saroj picture" />
+  </div>
+  <div class="about-content">
+    <h2 class="heading">About <span>Me</span></h2>
+    <h3>Backend Developer</h3>
+    <p>
+      With a solid foundation in Information Technology, honed through my
+      studies at Texas College of Management & IT, I am passionate about
+      leveraging my technical skills to create innovative solutions. My
+      proficiency in Python and experience with Django, alongside a basic
+      command of SQL, HTML, and CSS, enable me to develop robust web
+      applications. <br><br> Beyond my academic pursuits, I enjoy playing cricket and
+      football, engaging in gaming, and immersing myself in music, which
+      provides a balanced blend to my lifestyle. I am always eager to learn and
+      grow, both personally and professionally, while contributing to impactful
+      projects.
+    </p>
+    <a href="#home" class="btn">Find More</a>
+  </div>
+</section>
+
+<!--Services Section Design-->
+<section class="services" id="services">
+  <h2 class="heading">My <span>Services</span></h2>
+  <br /><br />
+  <div class="services-container">
+    <!--Service One-->
+    <div class="service-box">
+      <i class="fa-solid fa-code"></i>
+      <h3>Web Development</h3>
+      <p>With expertise in web technologies such as HTML, CSS, and the Django framework, I offer comprehensive web development services. Whether you need a simple static website or a dynamic web application, I can create responsive, user-friendly, and visually appealing web solutions tailored to your specific needs. My goal is to ensure that your online presence not only looks great but also functions seamlessly.</p>
+    </div>
+        <!--Service Two-->
+    <div class="service-box">
+      <i class="fa-solid fa-cogs"></i>
+      <h3>API Development</h3>
+      <p>In today's interconnected digital landscape, APIs (Application Programming Interfaces) are essential for enabling communication between different software systems. I specialize in developing robust and efficient APIs that facilitate smooth data exchange and integration between your applications. By utilizing Python and Django, I ensure that your APIs are secure, scalable, and easy to maintain.</p>
+    </div>
+        <!--Service Three-->
+    <div class="service-box">
+      <i class="fa-solid fa-database"></i>
+      <h3>Database Management</h3>
+      <p>Effective database management is crucial for the performance and reliability of your applications. With my skills in SQL and database design, I provide services that encompass the full spectrum of database management, from setting up and optimizing databases to ensuring data integrity and security. I focus on creating well-structured databases that support your business operations and help you make informed decisions through reliable data storage and retrieval.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio Section Design -->
+<section class="portfolio" id="portfolio">
+  <h2 class="heading">My <span>Portfolio</span></h2>
+  <br /><br />
+  <div class="portfolio-container">
+    <!--Project One-->
+    <div class="portfolio-box">
+      <div class="portfolio-image">
+        <img src="assets/Project/SRS.jpg" alt="Student Record System" />
+        <div class="portfolio-description">
+          <h3>Student Record System</h3>
+          <p>Developed a comprehensive system for managing student records using Django. Technologies & Methodologies: Django framework, SQLite database, HTML/CSS for the frontend, and Bootstrap for responsive design. Implemented CRUD operations, search</p>
+          <div class="portfolio-links">
+            <a href="https://github.com/ghimiresaroj09/student-record-system" target="_blank" class="btn"
+              >GitHub</a
+            >
+            <a href="https://student-record-system.vercel.app/" target="_blank" class="btn"
+              >Live Demo</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--Project Two-->
+    <div class="portfolio-box">
+      <div class="portfolio-image">
+        <img src="assets/Project/DCvM.jpg" alt="Django CV Maker" />
+        <div class="portfolio-description">
+          <h3>Django CV Maker</h3>
+          <p>Developed a web application for creating and downloading CVs in PDF format. Technologies & Methodologies: Django framework, SQLite database, HTML/CSS for the frontend, and Bootstrap for responsive design. Integrated with a PDF generation library in Django for exporting CVs.</p>
+          <div class="portfolio-links">
+            <a href="https://github.com/ghimiresaroj09/Django-CV-Maker" target="_blank" class="btn"
+              >GitHub</a
+            >
+            <a href="https://github.com/ghimiresaroj09/Django-CV-Maker/blob/main/DEMO.mp4" target="_blank" class="btn"
+              >Live Demo</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--Contact Section Design-->
+<section class="contact" id="contact">
+  <h2 class="heading">Contact <span>Me</span></h2>
+  <br /><br />
+  <div class="contact-container">
+    <div class="contact-info">
+      <h3>Contact Information</h3>
+      <p><i class="fas fa-phone"></i>  +977 9843951178</p>
+      <p><i class="fas fa-envelope"></i>  ghimiresaroj09@gmail.com</p>
+
+      <div class="social-media">
+        <a href="https://www.facebook.com/sarojghimire090" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://www.instagram.com/ghimire_saroj09/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://x.com/SG_CFC02CL" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/ghimire-saroj-00723024a/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/ghimiresaroj09" target="_blank"><i class="fa-brands fa-github"></i></a>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h1>Leave a message</h1>
+      <form action="https://formsubmit.co/302f0eec1f430eee92b52c2daf5e2700" method="POST">
+        <input type="text" name="name" placeholder="Full Name" required /><br />
+        <input type="email" name="email" placeholder="Email Address" required /><br />
+        <textarea name="message" placeholder="Leave a message here" required></textarea><br /><br /><br />
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+      <p>&copy;
+          <script>document.write(new Date().getFullYear())</script> Saroj's Portfolio. All rights reserved.
+      </p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>        
