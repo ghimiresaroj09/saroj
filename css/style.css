@@ -12,10 +12,10 @@
 }
 
 :root {
-  --bg-color: #034694;         /* Chelsea blue */
-  --snd-bg-color: #0463cf;     /* Darker blue */
-  --text-color: #ffffff;       /* White */
-  --main-color: #ffd700;       /* Gold */
+  --bg-color: #121212;
+  --snd-bg-color: #181818;
+  --text-color: #e0e0e0;
+  --main-color: #ff3b30;
 }
 
 html {
@@ -767,7 +767,7 @@ span {
   background: var(--bg-color);
   border-radius: 2rem;
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
-  padding: 5rem 9%;
+  padding: 10rem 9%;
 }
 
 .contact-container {
