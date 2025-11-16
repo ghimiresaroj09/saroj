@@ -10,6 +10,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="icon" href="assets/logo.png" type="image/x-icon">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animation.css">
   <title>SAROJ GHIMIRE</title>
 </head>
 
@@ -29,6 +30,7 @@
       <a href="#about" class="nav-link">ABOUT ME</a>
       <a href="#services" class="nav-link">SERVICES</a>
       <a href="#portfolio" class="nav-link">PROJECTS</a>
+      <a href="#gallery" class="nav-link">GALLERY</a>
       <a href="#contact" class="nav-link">CONTACT ME</a>
     </nav>
   </header>
@@ -127,7 +129,7 @@
           that data is sent and received properly.</p>
       </div>
       <!--Service Four-->
-       <div class="service-box">
+      <div class="service-box">
         <i class="fa-solid fa-tachometer-alt"></i>
         <h3>Performance Testing</h3>
         <p>I analyze how fast and stable a system is under heavy use. This helps ensure software runs smoothly without
@@ -209,6 +211,68 @@
     </div>
   </section>
 
+  <section id="gallery">
+    <h2 class="heading">My <span>Gallery</span></h2>
+    <div class="main-container">
+        <div class="carousel-section">
+            <div class="carousel-container">
+                <!-- <button class="nav-arrow up">
+                    <img src="https://ik.imagekit.io/gopichakradhar/icons/top.png?updatedAt=1754290522765" alt="Up">
+                </button> -->
+                <div class="carousel-track">
+                    <div class="card" data-index="0">
+                        <img src="https://ik.imagekit.io/gopichakradhar/luffy/o1.jpeg?updatedAt=1754289569411" alt="Team Member 1">
+                    </div>
+                    <div class="card" data-index="1">
+                        <img src="https://ik.imagekit.io/gopichakradhar/luffy/o2.jpeg?updatedAt=1754289569307" alt="Team Member 2">
+                    </div>
+                    <div class="card" data-index="2">
+                        <img src="https://ik.imagekit.io/gopichakradhar/luffy/o4.jpeg?updatedAt=1754289569398" alt="Team Member 3">
+                    </div>
+                    <div class="card" data-index="3">
+                        <img src="https://ik.imagekit.io/gopichakradhar/luffy/o3.jpeg?updatedAt=1754289569422" alt="Team Member 4">
+                    </div>
+                    <div class="card" data-index="4">
+                        <img src="https://ik.imagekit.io/gopichakradhar/luffy/o5.jpeg?updatedAt=1754289569406" alt="Team Member 5">
+                    </div>
+                    <div class="card" data-index="5">
+                        <img src="https://ik.imagekit.io/gopichakradhar/luffy/o6.jpeg?updatedAt=1754289569438" alt="Team Member 6">
+                    </div>
+                </div>
+                <!-- <button class="nav-arrow down">
+                    <img src="https://ik.imagekit.io/gopichakradhar/icons/down.png?updatedAt=1754290523249" alt="Down">
+                </button> -->
+            </div>
+        </div>
+
+        <div class="controls-section">
+            <div class="nav-controls">
+                <button class="nav-arrow up">
+                    <img src="https://ik.imagekit.io/gopichakradhar/icons/top.png?updatedAt=1754290522765" alt="Up">
+                </button>
+                <button class="nav-arrow down">
+                    <img src="https://ik.imagekit.io/gopichakradhar/icons/down.png?updatedAt=1754290523249" alt="Down">
+                </button>
+            </div>
+
+            <div class="member-info">
+                <h2 class="member-name"></h2>
+                <p class="member-role"></p>
+            </div>
+
+            <div class="dots">
+                <div class="dot active" data-index="0"></div>
+                <div class="dot" data-index="1"></div>
+                <div class="dot" data-index="2"></div>
+                <div class="dot" data-index="3"></div>
+                <div class="dot" data-index="4"></div>
+                <div class="dot" data-index="5"></div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+
   <!--Contact Section Design-->
   <section class="contact" id="contact">
     <h2 class="heading">Contact <span>Me</span></h2>
@@ -250,6 +314,7 @@
   </footer>
 
   <script src="js/script.js"></script>
+  <script src="js/animation.js"></script>
 </body>
 
 </html>
