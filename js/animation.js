@@ -1,16 +1,16 @@
 const teamMembers = [
-  { name: "Luffy", role: "Founder" },
-  { name: "Monkey D. Luffy", role: "Creative Director" },
-  { name: "Luffy chan", role: "Lead Developer" },
-  { name: "Lucy", role: "UX Designer" },
-  { name: "Luffy kun", role: "Marketing Manager" },
-  { name: "Monkey chan", role: "Product Manager" }
+  { name: "🚶‍♂️🥾⛰️📸", role: "Mardi Himal Trek" },
+  { name: "🌊🛶🌄😄", role: "Pokhara" },
+  { name: "🏔️🤍❄️🙂", role: "Mardi Himal" },
+  { name: "🌃✨🚶‍♂️📸", role: "Pokhara" },
+  { name: "🏔️🌨️😎📸", role: "Mustang" },
+  { name: "🪔🌟🙂", role: "Tihar 2024" }
 ];
 
 const cards = document.querySelectorAll(".card");
 const dots = document.querySelectorAll(".dot");
-const memberName = document.querySelector(".member-name");
-const memberRole = document.querySelector(".member-role");
+const memberName = document.querySelector(".gallery-name");
+const memberRole = document.querySelector(".gallery-desc");
 const upArrows = document.querySelectorAll(".nav-arrow.up");
 const downArrows = document.querySelectorAll(".nav-arrow.down");
 let currentIndex = 0;
@@ -178,3 +178,5 @@ document.addEventListener("wheel", userInteracted, { passive: true });
    INIT
 -------------------------- */
 startAutoSlide();
+
+
