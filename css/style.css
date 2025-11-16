@@ -12,11 +12,14 @@
 }
 
 :root {
-  --bg-color: #034694;         /* Chelsea blue */
-  --snd-bg-color: #0463cf;     /* Darker blue */
-  --text-color: #ffffff;       /* White */
-  --main-color: #ffd700;       /* Gold */
+  --bg-color: #1a237e;       /* Deep ocean blue for the sea/background */
+  --snd-bg-color: #1565c0;   /* Lighter blue for sections */
+  --text-color: #ffffff;     /* White text for readability */
+  --main-color: #ffcc00;     /* Straw hat gold / Luffy accent */
+  --accent-color: #e53935;   /* Luffy’s red vest / highlights */
+  --neutral-color: #f5f5f5;  /* Light grey for borders or cards */
 }
+
 
 html {
   font-size: 62.5%;
@@ -42,28 +45,33 @@ section {
   background: var(--bg-color);
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Added this for vertical alignment */
+  align-items: center;
+  /* Added this for vertical alignment */
   z-index: 100;
 }
 
-  .logo {
-    position: absolute;
-    top: 45%;
-    left: 10rem;
-    transform: translateY(-50%);
-    width: auto;
-    height: 150px; /* Adjust the size as needed */
-    cursor: pointer;
-    transition: filter 0.3s ease-in-out; /* Smooth transition for the glow effect */
+.logo {
+  position: absolute;
+  top: 45%;
+  left: 10rem;
+  transform: translateY(-50%);
+  width: auto;
+  height: 150px;
+  /* Adjust the size as needed */
+  cursor: pointer;
+  transition: filter 0.3s ease-in-out;
+  /* Smooth transition for the glow effect */
 }
 
 .logo:hover {
-    filter: drop-shadow(10px 10px 20px var(--main-color)); /* Glow effect */
+  filter: drop-shadow(10px 10px 20px var(--main-color));
+  /* Glow effect */
 }
 
 .navbar {
   display: flex;
-  align-items: center; /* Added this for vertical alignment */
+  align-items: center;
+  /* Added this for vertical alignment */
 }
 
 .navbar a {
@@ -79,15 +87,18 @@ section {
   transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
 }
 
-#menu-icon, #close-icon {
+#menu-icon,
+#close-icon {
   font-size: 3.6rem;
   color: var(--text-color);
   display: none;
-  cursor: pointer; /* Added this for clickable icon */
+  cursor: pointer;
+  /* Added this for clickable icon */
 }
 
 #close-icon {
-  display: none; /* Initially hide the close icon */
+  display: none;
+  /* Initially hide the close icon */
 }
 
 @media (max-width: 768px) {
@@ -115,11 +126,11 @@ section {
     display: none;
   }
 
-  .navbar.show + #close-icon {
+  .navbar.show+#close-icon {
     display: block;
   }
 
-  .navbar.show + #menu-icon {
+  .navbar.show+#menu-icon {
     display: none;
   }
 }
@@ -246,6 +257,7 @@ span {
   background: var(--main-color);
   color: var(--snd-bg-color);
   box-shadow: 0 0 2rem var(--main-color);
+  animation: quake 0.45s cubic-bezier(.36,.07,.19,.97);
 }
 
 /* Bounce from top animation */
@@ -254,13 +266,16 @@ span {
     opacity: 0;
     transform: translateY(-100px);
   }
+
   60% {
     opacity: 1;
     transform: translateY(20px);
   }
+
   80% {
     transform: translateY(-10px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -269,7 +284,8 @@ span {
 
 /* Apply bounce animation */
 .social-media a.animate-fall {
-  animation: fallBounce 0.8s ease forwards; /* forwards = final state persists */
+  animation: fallBounce 0.8s ease forwards;
+  /* forwards = final state persists */
 }
 
 
@@ -284,20 +300,27 @@ span {
   font-weight: 600;
   text-align: center;
   transition: 0.3s ease;
-  animation: blink 2s infinite; /* Add the blinking effect */
+  animation: blink 2s infinite;
+  /* Add the blinking effect */
 }
 
 /* Keyframes for blinking like an indicator light */
 @keyframes blink {
-  0%, 50%, 100% {
+
+  0%,
+  50%,
+  100% {
     background: var(--main-color);
     box-shadow: 0 0 3rem var(--main-color);
-        color: var(--text-color);
+    color: var(--text-color);
   }
-  25%, 75% {
-    background: #fff76b; /* or a lighter shade for flash */
+
+  25%,
+  75% {
+    background: #fff76b;
+    /* or a lighter shade for flash */
     box-shadow: 0 0 1rem var(--main-color);
-        color: var(--bg-color);
+    color: var(--bg-color);
 
   }
 }
@@ -310,8 +333,10 @@ span {
 
 /* New styles for spinning effect */
 .container {
-  width: 50vmin; /* Adjust size as needed */
-  height: 50vmin; /* Adjust size as needed */
+  width: 50vmin;
+  /* Adjust size as needed */
+  height: 50vmin;
+  /* Adjust size as needed */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -375,8 +400,13 @@ span {
 }
 
 @keyframes morph {
-  0% { border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%; }
-  100% { border-radius: 40% 60%; }
+  0% {
+    border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+  }
+
+  100% {
+    border-radius: 40% 60%;
+  }
 }
 
 @keyframes spin {
@@ -503,23 +533,50 @@ span {
 
 .about-img img {
   width: 25vw;
-  animation: floatImage 4s ease-in-out infinite;
   border-radius: 50px 150px 50px 150px;
   -webkit-border-radius: 50px 150px 50px 150px;
   -moz-border-radius: 50px 150px 50px 150px;
+
+  /* Scroll animation */
+  opacity: 0;
+  transform: scale(0.9);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+
+  /* Infinite animation */
+  animation: floatRotate 6s ease-in-out infinite alternate;
 }
 
-@keyframes floatImage {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-2.4rem);
-  }
-  100% {
-    transform: translateY(0);
-  }
+/* Scroll-trigger class */
+.about-img img.animate-img {
+  opacity: 1;
+  transform: scale(1);
 }
+
+/* Infinite floating + slow rotation */
+@keyframes floatRotate {
+  0%   { transform: translateY(0) rotate(0deg) scale(1); }
+  25%  { transform: translateY(-1.5rem) rotate(5deg) scale(1.02); }
+  50%  { transform: translateY(0) rotate(0deg) scale(1); }
+  75%  { transform: translateY(-1rem) rotate(-5deg) scale(1.01); }
+  100% { transform: translateY(0) rotate(0deg) scale(1); }
+}
+
+/* Optional hover jiggle */
+@keyframes hover-jiggle {
+  0%   { transform: rotate(0deg) scale(1.05); }
+  15%  { transform: rotate(-3deg) scale(1.07); }
+  30%  { transform: rotate(3deg) scale(1.06); }
+  45%  { transform: rotate(-2deg) scale(1.08); }
+  60%  { transform: rotate(2deg) scale(1.07); }
+  75%  { transform: rotate(-1deg) scale(1.06); }
+  100% { transform: rotate(0deg) scale(1.05); }
+}
+
+.about-img img:hover {
+  animation: hover-jiggle 0.6s ease-in-out;
+  cursor: pointer;
+}
+
 
 .about-content {
   max-width: 600px;
@@ -530,7 +587,7 @@ span {
   font-size: 4.5rem;
   margin-bottom: 1rem;
   cursor: pointer;
-  
+
 
   /* Animation state */
   opacity: 0;
@@ -576,6 +633,8 @@ span {
   padding-right: 0.2rem;
   white-space: nowrap;
   overflow: hidden;
+  font-size: 2rem;
+  color: var(--main-color);
 }
 
 
@@ -686,7 +745,7 @@ span {
 
 
 /* Services */
-.services{
+.services {
   text-align: center;
   gap: 2rem;
   background: var(--bg-color);
@@ -703,14 +762,47 @@ span {
   gap: 2rem;
 }
 
+/* Initial state for scroll animation */
 .service-box {
   width: 35rem;
   padding: 2rem;
   background: linear-gradient(135deg, var(--snd-bg-color), var(--bg-color));
   border-radius: 1rem;
   text-align: center;
-  transition: 0.3s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.8) rotate(-5deg);
 }
+
+/* Scroll-triggered animation (bloom/pop) */
+.service-box.animate-service {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+              opacity 0.6s ease;
+}
+
+/* Hover earthquake + scale animation */
+@keyframes quake-scale {
+  0%   { transform: scale(1.1) translate(0, 0) rotate(0deg); }
+  10%  { transform: scale(1.12) translate(-2px, -2px) rotate(-1deg); }
+  20%  { transform: scale(1.12) translate(2px, 2px) rotate(1deg); }
+  30%  { transform: scale(1.13) translate(-3px, 2px) rotate(-2deg); }
+  40%  { transform: scale(1.13) translate(3px, -2px) rotate(2deg); }
+  50%  { transform: scale(1.12) translate(-2px, 1px) rotate(-1deg); }
+  60%  { transform: scale(1.12) translate(2px, -1px) rotate(1deg); }
+  70%  { transform: scale(1.13) translate(-1px, 2px) rotate(-1deg); }
+  80%  { transform: scale(1.13) translate(1px, -2px) rotate(1deg); }
+  100% { transform: scale(1.1) translate(0, 0) rotate(0deg); }
+}
+
+/* Hover trigger */
+.service-box:hover {
+  animation: quake-scale 0.6s cubic-bezier(.36,.07,.19,.97);
+  box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
+}
+
 
 .service-box i {
   font-size: 4rem;
@@ -727,12 +819,19 @@ span {
 
 /* Bounce animation */
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateY(0);
   }
+
   40% {
     transform: translateY(-15px);
   }
+
   60% {
     transform: translateY(-7px);
   }
@@ -786,7 +885,7 @@ span {
 
 
 /* Portfolio Section Styles */
-.portfolio{
+.portfolio {
   text-align: center;
   gap: 2rem;
   background: linear-gradient(135deg, var(--bg-color), var(--snd-bg-color));
@@ -802,18 +901,79 @@ span {
   gap: 2rem;
 }
 
+/* Initial state for bloom */
 .portfolio-box {
   position: relative;
   overflow: hidden;
   border-radius: 1rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
   cursor: pointer;
+
+  /* Bloom start */
+  opacity: 0;
+  transform: scale(0);
 }
 
-.portfolio-box:hover {
-  transform: translateY(-0.5rem);
+/* Bloom animation */
+.portfolio-box.animate-bloom {
+  opacity: 1;
+  transform: scale(1);
+  transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+              opacity 1s ease;
 }
+
+/* Hover effects: scale + shadow */
+.portfolio-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0 1.5rem 2rem rgba(0,0,0,0.3);
+}
+
+/* Image zoom effect */
+.portfolio-image img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+
+.portfolio-box:hover .portfolio-image img {
+  transform: scale(1.1);
+}
+
+/* Overlay slide-up with blur */
+.portfolio-description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(3px);
+  color: #fff;
+  padding: 1.5rem;
+  transform: translateY(100%);
+  transition: transform 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+.portfolio-box:hover .portfolio-description {
+  transform: translateY(0);
+}
+
+/* Stagger fade-in of text and buttons */
+.portfolio-description h3,
+.portfolio-description p,
+.portfolio-links a {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.portfolio-box:hover .portfolio-description h3,
+.portfolio-box:hover .portfolio-description p,
+.portfolio-box:hover .portfolio-links a {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.1s;
+}
+
 
 .portfolio-image {
   position: relative;
@@ -822,11 +982,16 @@ span {
 }
 
 .portfolio-image img {
-  width: 100%; /* Ensure image fills its container */
-  height: auto; /* Maintain aspect ratio */
-  max-width: 100%; /* Ensure image does not exceed container width */
-  height: 400px; /* Fixed height */
-  object-fit: cover; /* Ensure the image covers the specified dimensions */
+  width: 100%;
+  /* Ensure image fills its container */
+  height: auto;
+  /* Maintain aspect ratio */
+  max-width: 100%;
+  /* Ensure image does not exceed container width */
+  height: 400px;
+  /* Fixed height */
+  object-fit: cover;
+  /* Ensure the image covers the specified dimensions */
   transition: transform 0.3s ease;
 }
 
@@ -933,6 +1098,27 @@ span {
   margin-bottom: 1rem;
 }
 
+/* Initial hidden state */
+.contact-info p,
+.contact-info h3 {
+  opacity: 0;
+  transform: translateX(-20px);
+  cursor: pointer;
+}
+.contact-info p:hover,
+.contact-info h3:hover {
+  color: var(--main-color);
+}
+
+
+/* Animation class applied by JS */
+.contact-animate {
+  opacity: 1 !important;
+  transform: translateX(0) !important;
+  transition: all 0.6s ease;
+}
+
+
 .contact-info .social-media {
   margin-top: 2rem;
 }
@@ -965,7 +1151,7 @@ span {
 .contact-form textarea {
   height: 150px;
   resize: none;
-}  
+}
 
 .contact-form button {
   background: var(--main-color);
@@ -985,6 +1171,63 @@ span {
   margin-bottom: 1.2rem;
 }
 
+.contact-social-media a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  background: transparent;
+  border: 0.2rem solid var(--main-color);
+  border-radius: 50%;
+  font-size: 2rem;
+  color: var(--main-color);
+  margin: 3rem 1.5rem 3rem 0;
+  transition: 0.5s ease;
+}
+
+/* Hover earthquake */
+.contact-social-media a:hover {
+  background: var(--main-color);
+  color: var(--snd-bg-color);
+  box-shadow: 0 0 2rem var(--main-color);
+  animation: quake 0.45s cubic-bezier(.36,.07,.19,.97);
+}
+
+@keyframes quake {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  10%  { transform: translate(-3px, -2px) rotate(-1deg); }
+  20%  { transform: translate(3px, 2px) rotate(1deg); }
+  30%  { transform: translate(-4px, 2px) rotate(-2deg); }
+  40%  { transform: translate(4px, -2px) rotate(2deg); }
+  50%  { transform: translate(-3px, 1px) rotate(-1deg); }
+  60%  { transform: translate(3px, -1px) rotate(1deg); }
+  70%  { transform: translate(-2px, 2px) rotate(-1deg); }
+  80%  { transform: translate(2px, -2px) rotate(1deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+/* Initial entry animation */
+.quake-on-load,
+.quake-on-visible {
+  animation: quakeLoad 0.7s ease-out;
+}
+
+@keyframes quakeLoad {
+  0%   { transform: translate(0,0) rotate(0deg); opacity: 0; }
+  10%  { transform: translate(-4px, -2px) rotate(-2deg); }
+  20%  { transform: translate(4px, 2px) rotate(2deg); opacity: 1; }
+  30%  { transform: translate(-5px, 3px) rotate(-2deg); }
+  40%  { transform: translate(5px, -3px) rotate(2deg); }
+  50%  { transform: translate(-3px, 2px) rotate(-1deg); }
+  60%  { transform: translate(3px, -2px) rotate(1deg); }
+  70%  { transform: translate(-2px, 1px) rotate(-1deg); }
+  80%  { transform: translate(2px, -1px) rotate(1deg); }
+  100% { transform: translate(0,0) rotate(0deg); opacity: 1; }
+}
+
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .contact {
@@ -1003,17 +1246,21 @@ span {
     width: 100%;
     max-width: 100%;
   }
-  .contact-form{
+
+  .contact-form {
     width: 300px;
   }
-        /* Make the logo left aligned in mobile view */
-    .logo {
+
+  /* Make the logo left aligned in mobile view */
+  .logo {
     position: absolute;
-    left: 10px;  /* Adjust as needed */
+    left: 10px;
+    /* Adjust as needed */
     top: 50%;
     transform: translateY(-50%);
     width: auto;
-    height: 150px; /* Adjust size as needed */
+    height: 150px;
+    /* Adjust size as needed */
   }
 }
 
@@ -1042,7 +1289,7 @@ span {
     font-size: 1.2rem;
   }
 
-  .contact-form{
+  .contact-form {
     width: 300px;
   }
 }
@@ -1084,5 +1331,3 @@ span {
   font-size: 1.5rem;
   margin-bottom: .5rem;
 }
-
-

@@ -279,5 +279,130 @@ function deleteSkill() {
   }
 }
 
-// Start typing effect on page load
-typeSkill();
+typeSkill();  // Start typing effect on page load
+
+
+//Contact Info
+const contactItems = document.querySelectorAll('.contact-info p, .contact-info h3');
+
+const contactObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      contactItems.forEach((item, i) => {
+        setTimeout(() => {
+          item.classList.add('contact-animate');
+        }, i * 150); // stagger animation
+      });
+    } else {
+      // Remove animation when leaving the section (optional)
+      contactItems.forEach(item => item.classList.remove('contact-animate'));
+    }
+  });
+}, { threshold: 0.3 });
+
+contactObserver.observe(document.querySelector('.contact-info'));
+
+
+// Run shake on page load
+window.addEventListener("load", () => {
+  const icons = document.querySelectorAll(".contact-social-media a");
+
+  icons.forEach((icon, index) => {
+    setTimeout(() => {
+      icon.classList.add("quake-on-load");
+
+      setTimeout(() => {
+        icon.classList.remove("quake-on-load");
+      }, 800);
+
+    }, index * 120);
+  });
+});
+
+// IntersectionObserver - triggers every time section becomes visible
+const smSection = document.querySelector(".contact-social-media");
+const smIcons = document.querySelectorAll(".contact-social-media a");
+
+const smObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+
+        smIcons.forEach((icon, index) => {
+          setTimeout(() => {
+            icon.classList.add("quake-on-visible");
+
+            setTimeout(() => {
+              icon.classList.remove("quake-on-visible");
+            }, 800);
+
+          }, index * 120);
+        });
+
+      }
+    });
+  },
+  { threshold: 0.3 }
+);
+
+smObserver.observe(smSection);
+
+
+//Portfolio
+const portfolioBoxes = document.querySelectorAll('.portfolio-box');
+
+const bloomObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      // Add staggered bloom
+      portfolioBoxes.forEach((box, index) => {
+        setTimeout(() => {
+          box.classList.add('animate-bloom');
+        }, index * 200); // each box blooms 200ms after previous
+      });
+    } else {
+      // Optional: remove animation to replay on scroll back
+      portfolioBoxes.forEach(box => box.classList.remove('animate-bloom'));
+    }
+  });
+}, { threshold: 0.3 });
+
+portfolioBoxes.forEach(box => bloomObserver.observe(box));
+
+
+//Services
+const serviceBoxes = document.querySelectorAll('.service-box');
+
+const serviceObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      // Stagger each box
+      serviceBoxes.forEach((box, index) => {
+        setTimeout(() => {
+          box.classList.add('animate-service');
+        }, index * 200); // each box appears 200ms after previous
+      });
+    } else {
+      // Remove class to allow re-triggering on scroll back
+      serviceBoxes.forEach(box => box.classList.remove('animate-service'));
+    }
+  });
+}, { threshold: 0.3 });
+
+serviceBoxes.forEach(box => serviceObserver.observe(box));
+
+
+//About Image
+const aboutImg = document.querySelector('.about-img img');
+
+const imgObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('animate-img');
+    } else {
+      entry.target.classList.remove('animate-img'); // replay if scrolling back
+    }
+  });
+}, { threshold: 0.3 });
+
+if (aboutImg) imgObserver.observe(aboutImg);
