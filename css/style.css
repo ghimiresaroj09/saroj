@@ -12,10 +12,14 @@
 }
 
 :root {
-  --bg-color: #1a237e;       /* Deep ocean blue for the sea/background */
-  --snd-bg-color: #1565c0;   /* Lighter blue for sections */
-  --text-color: #ffffff;     /* White text for readability */
-  --main-color: #ffcc00;     /* Straw hat gold / Luffy accent */
+  --bg-color: #1a237e;
+  /* Deep ocean blue for the sea/background */
+  --snd-bg-color: #1565c0;
+  /* Lighter blue for sections */
+  --text-color: #ffffff;
+  /* White text for readability */
+  --main-color: #ffcc00;
+  /* Straw hat gold / Luffy accent */
 }
 
 
@@ -255,7 +259,7 @@ span {
   background: var(--main-color);
   color: var(--snd-bg-color);
   box-shadow: 0 0 2rem var(--main-color);
-  animation: quake 0.45s cubic-bezier(.36,.07,.19,.97);
+  animation: quake 0.45s cubic-bezier(.36, .07, .19, .97);
 }
 
 /* Bounce from top animation */
@@ -552,22 +556,56 @@ span {
 
 /* Infinite floating + slow rotation */
 @keyframes floatRotate {
-  0%   { transform: translateY(0) rotate(0deg) scale(1); }
-  25%  { transform: translateY(-1.5rem) rotate(5deg) scale(1.02); }
-  50%  { transform: translateY(0) rotate(0deg) scale(1); }
-  75%  { transform: translateY(-1rem) rotate(-5deg) scale(1.01); }
-  100% { transform: translateY(0) rotate(0deg) scale(1); }
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+
+  25% {
+    transform: translateY(-1.5rem) rotate(5deg) scale(1.02);
+  }
+
+  50% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+
+  75% {
+    transform: translateY(-1rem) rotate(-5deg) scale(1.01);
+  }
+
+  100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
 }
 
 /* Optional hover jiggle */
 @keyframes hover-jiggle {
-  0%   { transform: rotate(0deg) scale(1.05); }
-  15%  { transform: rotate(-3deg) scale(1.07); }
-  30%  { transform: rotate(3deg) scale(1.06); }
-  45%  { transform: rotate(-2deg) scale(1.08); }
-  60%  { transform: rotate(2deg) scale(1.07); }
-  75%  { transform: rotate(-1deg) scale(1.06); }
-  100% { transform: rotate(0deg) scale(1.05); }
+  0% {
+    transform: rotate(0deg) scale(1.05);
+  }
+
+  15% {
+    transform: rotate(-3deg) scale(1.07);
+  }
+
+  30% {
+    transform: rotate(3deg) scale(1.06);
+  }
+
+  45% {
+    transform: rotate(-2deg) scale(1.08);
+  }
+
+  60% {
+    transform: rotate(2deg) scale(1.07);
+  }
+
+  75% {
+    transform: rotate(-1deg) scale(1.06);
+  }
+
+  100% {
+    transform: rotate(0deg) scale(1.05);
+  }
 }
 
 .about-img img:hover {
@@ -778,27 +816,56 @@ span {
   opacity: 1;
   transform: scale(1) rotate(0deg);
   transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55),
-              opacity 0.6s ease;
+    opacity 0.6s ease;
 }
 
 /* Hover earthquake + scale animation */
 @keyframes quake-scale {
-  0%   { transform: scale(1.1) translate(0, 0) rotate(0deg); }
-  10%  { transform: scale(1.12) translate(-2px, -2px) rotate(-1deg); }
-  20%  { transform: scale(1.12) translate(2px, 2px) rotate(1deg); }
-  30%  { transform: scale(1.13) translate(-3px, 2px) rotate(-2deg); }
-  40%  { transform: scale(1.13) translate(3px, -2px) rotate(2deg); }
-  50%  { transform: scale(1.12) translate(-2px, 1px) rotate(-1deg); }
-  60%  { transform: scale(1.12) translate(2px, -1px) rotate(1deg); }
-  70%  { transform: scale(1.13) translate(-1px, 2px) rotate(-1deg); }
-  80%  { transform: scale(1.13) translate(1px, -2px) rotate(1deg); }
-  100% { transform: scale(1.1) translate(0, 0) rotate(0deg); }
+  0% {
+    transform: scale(1.1) translate(0, 0) rotate(0deg);
+  }
+
+  10% {
+    transform: scale(1.12) translate(-2px, -2px) rotate(-1deg);
+  }
+
+  20% {
+    transform: scale(1.12) translate(2px, 2px) rotate(1deg);
+  }
+
+  30% {
+    transform: scale(1.13) translate(-3px, 2px) rotate(-2deg);
+  }
+
+  40% {
+    transform: scale(1.13) translate(3px, -2px) rotate(2deg);
+  }
+
+  50% {
+    transform: scale(1.12) translate(-2px, 1px) rotate(-1deg);
+  }
+
+  60% {
+    transform: scale(1.12) translate(2px, -1px) rotate(1deg);
+  }
+
+  70% {
+    transform: scale(1.13) translate(-1px, 2px) rotate(-1deg);
+  }
+
+  80% {
+    transform: scale(1.13) translate(1px, -2px) rotate(1deg);
+  }
+
+  100% {
+    transform: scale(1.1) translate(0, 0) rotate(0deg);
+  }
 }
 
 /* Hover trigger */
 .service-box:hover {
-  animation: quake-scale 0.6s cubic-bezier(.36,.07,.19,.97);
-  box-shadow: 0 1rem 2rem rgba(0,0,0,0.2);
+  animation: quake-scale 0.6s cubic-bezier(.36, .07, .19, .97);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 
@@ -917,13 +984,13 @@ span {
   opacity: 1;
   transform: scale(1);
   transition: transform 1s cubic-bezier(0.68, -0.55, 0.27, 1.55),
-              opacity 1s ease;
+    opacity 1s ease;
 }
 
 /* Hover effects: scale + shadow */
 .portfolio-box:hover {
   transform: scale(1.05);
-  box-shadow: 0 1.5rem 2rem rgba(0,0,0,0.3);
+  box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.3);
 }
 
 /* Image zoom effect */
@@ -943,7 +1010,7 @@ span {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(3px);
   color: #fff;
   padding: 1.5rem;
@@ -1066,11 +1133,15 @@ span {
 
 /* Contact Section */
 .contact {
-  background: var(--bg-color);
+  gap: 2rem;
+  background: linear-gradient(135deg, var(--bg-color), var(--snd-bg-color));
+  padding: 10rem 9%;
   border-radius: 2rem;
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
-  padding: 10rem 9%;
+  margin: 2rem 0;
 }
+
+
 
 .contact-container {
   display: flex;
@@ -1103,6 +1174,7 @@ span {
   transform: translateX(-20px);
   cursor: pointer;
 }
+
 .contact-info p:hover,
 .contact-info h3:hover {
   color: var(--main-color);
@@ -1189,20 +1261,49 @@ span {
   background: var(--main-color);
   color: var(--snd-bg-color);
   box-shadow: 0 0 2rem var(--main-color);
-  animation: quake 0.45s cubic-bezier(.36,.07,.19,.97);
+  animation: quake 0.45s cubic-bezier(.36, .07, .19, .97);
 }
 
 @keyframes quake {
-  0%   { transform: translate(0, 0) rotate(0deg); }
-  10%  { transform: translate(-3px, -2px) rotate(-1deg); }
-  20%  { transform: translate(3px, 2px) rotate(1deg); }
-  30%  { transform: translate(-4px, 2px) rotate(-2deg); }
-  40%  { transform: translate(4px, -2px) rotate(2deg); }
-  50%  { transform: translate(-3px, 1px) rotate(-1deg); }
-  60%  { transform: translate(3px, -1px) rotate(1deg); }
-  70%  { transform: translate(-2px, 2px) rotate(-1deg); }
-  80%  { transform: translate(2px, -2px) rotate(1deg); }
-  100% { transform: translate(0, 0) rotate(0deg); }
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  10% {
+    transform: translate(-3px, -2px) rotate(-1deg);
+  }
+
+  20% {
+    transform: translate(3px, 2px) rotate(1deg);
+  }
+
+  30% {
+    transform: translate(-4px, 2px) rotate(-2deg);
+  }
+
+  40% {
+    transform: translate(4px, -2px) rotate(2deg);
+  }
+
+  50% {
+    transform: translate(-3px, 1px) rotate(-1deg);
+  }
+
+  60% {
+    transform: translate(3px, -1px) rotate(1deg);
+  }
+
+  70% {
+    transform: translate(-2px, 2px) rotate(-1deg);
+  }
+
+  80% {
+    transform: translate(2px, -2px) rotate(1deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
 }
 
 /* Initial entry animation */
@@ -1212,16 +1313,48 @@ span {
 }
 
 @keyframes quakeLoad {
-  0%   { transform: translate(0,0) rotate(0deg); opacity: 0; }
-  10%  { transform: translate(-4px, -2px) rotate(-2deg); }
-  20%  { transform: translate(4px, 2px) rotate(2deg); opacity: 1; }
-  30%  { transform: translate(-5px, 3px) rotate(-2deg); }
-  40%  { transform: translate(5px, -3px) rotate(2deg); }
-  50%  { transform: translate(-3px, 2px) rotate(-1deg); }
-  60%  { transform: translate(3px, -2px) rotate(1deg); }
-  70%  { transform: translate(-2px, 1px) rotate(-1deg); }
-  80%  { transform: translate(2px, -1px) rotate(1deg); }
-  100% { transform: translate(0,0) rotate(0deg); opacity: 1; }
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    transform: translate(-4px, -2px) rotate(-2deg);
+  }
+
+  20% {
+    transform: translate(4px, 2px) rotate(2deg);
+    opacity: 1;
+  }
+
+  30% {
+    transform: translate(-5px, 3px) rotate(-2deg);
+  }
+
+  40% {
+    transform: translate(5px, -3px) rotate(2deg);
+  }
+
+  50% {
+    transform: translate(-3px, 2px) rotate(-1deg);
+  }
+
+  60% {
+    transform: translate(3px, -2px) rotate(1deg);
+  }
+
+  70% {
+    transform: translate(-2px, 1px) rotate(-1deg);
+  }
+
+  80% {
+    transform: translate(2px, -1px) rotate(1deg);
+  }
+
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 1;
+  }
 }
 
 

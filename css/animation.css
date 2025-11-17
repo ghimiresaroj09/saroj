@@ -165,6 +165,21 @@
 	pointer-events: none;
 }
 
+.gallery {
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 2rem;
+  background: var(--bg-color);
+  padding: 10rem 9%;
+  border-radius: 2rem;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+  margin: 2rem 0;
+}
+
+
 .gallery-info {
 	text-align: center;
 	margin-top: 20px;
