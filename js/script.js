@@ -378,18 +378,19 @@ const serviceObserver = new IntersectionObserver((entries) => {
     if(entry.isIntersecting){
       // Stagger each box
       serviceBoxes.forEach((box, index) => {
-        setTimeout(() => {
-          box.classList.add('animate-service');
-        }, index * 200); // each box appears 200ms after previous
+        // Only add if not already added
+        if(!box.classList.contains('animate-service')) {
+          setTimeout(() => {
+            box.classList.add('animate-service');
+          }, index * 200);
+        }
       });
-    } else {
-      // Remove class to allow re-triggering on scroll back
-      serviceBoxes.forEach(box => box.classList.remove('animate-service'));
     }
   });
 }, { threshold: 0.3 });
 
 serviceBoxes.forEach(box => serviceObserver.observe(box));
+
 
 
 //About Image

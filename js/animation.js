@@ -180,3 +180,102 @@ document.addEventListener("wheel", userInteracted, { passive: true });
 startAutoSlide();
 
 
+
+
+
+
+
+
+
+//My services
+
+const root = document.documentElement;
+const marqueeContent = document.querySelector(".marquee-content");
+
+// get how many elements are visible in the viewport
+let marqueeElementsDisplayed = parseInt(getComputedStyle(root).getPropertyValue("--marquee-elements-displayed"));
+
+// total elements in the original list
+let totalElements = marqueeContent.children.length;
+
+// set CSS variable for total elements
+root.style.setProperty("--marquee-elements", totalElements);
+
+// clone first N elements to create infinite scroll
+for (let i = 0; i < marqueeElementsDisplayed; i++) {
+  marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
+}
+
+// recalc width and animation duration after clones
+const marqueeElementWidth = marqueeContent.children[0].offsetWidth;
+root.style.setProperty("--marquee-element-width", marqueeElementWidth + "px");
+root.style.setProperty("--marquee-animation-duration", `${marqueeContent.children.length * 3}s`);
+
+// Optional: recalc on window resize for responsiveness
+window.addEventListener("resize", () => {
+  marqueeElementsDisplayed = parseInt(getComputedStyle(root).getPropertyValue("--marquee-elements-displayed"));
+  const marqueeElementWidth = marqueeContent.children[0].offsetWidth;
+  root.style.setProperty("--marquee-element-width", marqueeElementWidth + "px");
+  root.style.setProperty("--marquee-animation-duration", `${marqueeContent.children.length * 3}s`);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Mouse Trailing animation
+
+const mainCursor = document.querySelector('.cursor');  // Big circle
+const tailCursor = document.querySelector('.cursor2'); // Trailing small circle
+
+let mouseX = 0, mouseY = 0; // Real mouse pointer
+let tailX = 0, tailY = 0;   // Tail cursor position
+
+// Set offset distance for tail cursor behind the main pointer
+const tailOffsetDistance = 20; // pixels
+
+document.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+
+  // Center main cursor on pointer using CSS transform (-50%, -50%)
+  mainCursor.style.left = `${mouseX}px`;
+  mainCursor.style.top = `${mouseY}px`;
+});
+
+function animateTail() {
+  const lag = 0.15; // Smaller = slower trailing (higher lag means slower movement)
+  
+  // Move tail cursor position toward mouse position with lag
+  tailX += (mouseX - tailX) * lag;
+  tailY += (mouseY - tailY) * lag;
+
+  // Calculate vector from tail to mouse to offset tail behind the pointer
+  let dx = tailX - mouseX;
+  let dy = tailY - mouseY;
+  let dist = Math.sqrt(dx * dx + dy * dy);
+  
+  let offsetX = 0, offsetY = 0;
+  if(dist !== 0) {
+    offsetX = (dx / dist) * tailOffsetDistance;
+    offsetY = (dy / dist) * tailOffsetDistance;
+  }
+  
+  // Position tail cursor behind the main cursor, no centering transform in CSS,
+  // so set left/top directly
+  tailCursor.style.left = `${tailX + offsetX}px`;
+  tailCursor.style.top = `${tailY + offsetY}px`;
+
+  requestAnimationFrame(animateTail);
+}
+
+animateTail();
