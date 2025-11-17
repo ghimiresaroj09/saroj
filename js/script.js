@@ -351,23 +351,23 @@ smObserver.observe(smSection);
 //Portfolio
 const portfolioBoxes = document.querySelectorAll('.portfolio-box');
 
-const bloomObserver = new IntersectionObserver((entries) => {
+const portfolioObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if(entry.isIntersecting){
-      // Add staggered bloom
+      // Stagger each box once
       portfolioBoxes.forEach((box, index) => {
-        setTimeout(() => {
-          box.classList.add('animate-bloom');
-        }, index * 200); // each box blooms 200ms after previous
+        if(!box.classList.contains('animate-bloom')) {
+          setTimeout(() => {
+            box.classList.add('animate-bloom');
+          }, index * 200);
+        }
       });
-    } else {
-      // Optional: remove animation to replay on scroll back
-      portfolioBoxes.forEach(box => box.classList.remove('animate-bloom'));
     }
   });
 }, { threshold: 0.3 });
 
-portfolioBoxes.forEach(box => bloomObserver.observe(box));
+portfolioBoxes.forEach(box => portfolioObserver.observe(box));
+
 
 
 //Services
