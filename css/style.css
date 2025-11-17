@@ -200,8 +200,8 @@ span {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.6s ease, transform 0.6s ease;
-  font-size: 5rem;
-  font-weight: 700;
+  font-size: 4.5rem;
+  font-weight: 650;
   line-height: 1.3;
 }
 
