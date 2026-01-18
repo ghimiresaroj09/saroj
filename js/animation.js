@@ -1,16 +1,26 @@
-const teamMembers = [
-  { name: "🚶‍♂️🥾⛰️📸", role: "Mardi Himal Trek" },
-  { name: "🌊🛶🌄😄", role: "Pokhara" },
-  { name: "🏔️🤍❄️🙂", role: "Mardi Himal" },
-  { name: "🌃✨🚶‍♂️📸", role: "Pokhara" },
-  { name: "🏔️🌨️😎📸", role: "Mustang" },
-  { name: "🪔🌟🙂", role: "Tihar 2024" }
+const certificate = [
+  {
+    name: "Cloud Foundations",
+    publisher: "AWS Academy"
+  },
+  {
+    name: "Introduction to Networks",
+    publisher: "Cisco (CCNA)"
+  },
+  {
+    name: "Quality Assurance Training",
+    publisher: "Mindrisers Institute of technology"
+  },
+  {
+    name: "Python Programming (30 Hours)",
+    publisher: "Texas College of Management & IT"
+  }
 ];
 
 const cards = document.querySelectorAll(".card");
 const dots = document.querySelectorAll(".dot");
-const memberName = document.querySelector(".gallery-name");
-const memberRole = document.querySelector(".gallery-desc");
+const certificateName = document.querySelector(".gallery-name");
+const certificatePublisher = document.querySelector(".gallery-desc");
 const upArrows = document.querySelectorAll(".nav-arrow.up");
 const downArrows = document.querySelectorAll(".nav-arrow.down");
 let currentIndex = 0;
@@ -47,14 +57,14 @@ function updateCarousel(newIndex) {
     dot.classList.toggle("active", i === currentIndex);
   });
 
-  memberName.style.opacity = "0";
-  memberRole.style.opacity = "0";
+  certificateName.style.opacity = "0";
+  certificatePublisher.style.opacity = "0";
 
   setTimeout(() => {
-    memberName.textContent = teamMembers[currentIndex].name;
-    memberRole.textContent = teamMembers[currentIndex].role;
-    memberName.style.opacity = "1";
-    memberRole.style.opacity = "1";
+    certificateName.textContent = certificate[currentIndex].name;
+    certificatePublisher.textContent = certificate[currentIndex].publisher;
+    certificateName.style.opacity = "1";
+    certificatePublisher.style.opacity = "1";
   }, 300);
 
   setTimeout(() => {
