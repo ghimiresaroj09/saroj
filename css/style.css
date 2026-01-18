@@ -1253,7 +1253,7 @@ span {
   color: var(--text-color);
 }
 
-.contact-form h1 {
+.contact-form h2 {
   font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
@@ -1393,7 +1393,7 @@ span {
   .contact-form input,
   .contact-form textarea,
   .contact-form button,
-  .contact-form h1 {
+  .contact-form h2 {
     width: 100%;
     max-width: 100%;
   }
@@ -1428,7 +1428,7 @@ span {
     font-size: 1.4rem;
   }
 
-  .contact-form h1 {
+  .contact-form h2 {
     font-size: 2rem;
   }
 

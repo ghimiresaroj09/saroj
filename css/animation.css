@@ -486,9 +486,9 @@
 
 
 :root {
-	--marquee-width: 95vw;
+	--marquee-width: 90vw;
 	--marquee-height: 30vh;
-	--marquee-elements-displayed: 5;
+	--marquee-elements-displayed: 6;
 }
 
 .marquee {
@@ -511,9 +511,10 @@
 }
 
 .marquee h2 {
-	font-size: 3rem;
-	font-weight: 600;
-	line-height: 1.3;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.2rem;
 }
 
 
@@ -542,13 +543,24 @@
 	flex-shrink: 0;
 	width: calc(var(--marquee-width) / var(--marquee-elements-displayed));
 	max-height: 100%;
+	padding: 0.5rem;
 }
 
 .marquee-content li img {
-	max-width: 50%;
-	max-height: 50%;
+	width: 100px;
+	height: 100px;
 	object-fit: contain;
-	border-radius: 8px;
+	border-radius: 12px;
+	background: rgba(255, 255, 255, 0.1);
+	padding: 1rem;
+	transition: all 0.3s ease;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.marquee-content li img:hover {
+	transform: scale(1.15);
+	box-shadow: 0 8px 25px rgba(255, 204, 0, 0.3);
+	background: rgba(255, 204, 0, 0.1);
 }
 
 @keyframes scrolling {
@@ -568,7 +580,7 @@
 
 	:root {
 		--marquee-width: 100vw;
-		--marquee-height: 20vh;
+		--marquee-height: 30vh;
 		--marquee-elements-displayed: 3;
 	}
 

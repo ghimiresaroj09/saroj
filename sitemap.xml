@@ -4,4 +4,24 @@
     <loc>https://www.ghimiresaroj09.com.np/</loc>
     <priority>1.0</priority>
   </url>
+  <url>
+    <loc>https://www.ghimiresaroj09.com.np/#about</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ghimiresaroj09.com.np/#services</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ghimiresaroj09.com.np/#portfolio</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ghimiresaroj09.com.np/#gallery</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ghimiresaroj09.com.np/#contact</loc>
+    <priority>0.8</priority>
+  </url>
 </urlset>
