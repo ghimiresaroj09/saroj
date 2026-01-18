@@ -26,6 +26,17 @@ const downArrows = document.querySelectorAll(".nav-arrow.down");
 let currentIndex = 0;
 let isAnimating = false;
 
+
+document.querySelectorAll('.nav-arrow').forEach(button => {
+  button.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      button.click();
+    }
+  });
+});
+
+
 // Function to update carousel positions
 function updateCarousel(newIndex) {
   if (isAnimating) return;
