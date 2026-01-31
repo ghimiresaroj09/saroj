@@ -92,19 +92,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-//active on the navbar
+//active on the navbar and bottom navigation
 
 document.addEventListener("DOMContentLoaded", function() {
     const sections = document.querySelectorAll("section");
     const navLinks = document.querySelectorAll(".navbar a");
+    const bottomNavLinks = document.querySelectorAll(".bottom-nav-link");
 
-    window.addEventListener("scroll", function() {
+    let ticking = false;
+    let lastScrollY = 0;
+
+    function updateActiveNav() {
         let current = "";
 
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
-            if (window.scrollY >= sectionTop - sectionHeight / 3) {
+            if (lastScrollY >= sectionTop - sectionHeight / 3) {
                 current = section.getAttribute("id");
             }
         });
@@ -115,8 +119,40 @@ document.addEventListener("DOMContentLoaded", function() {
                 link.classList.add("active");
             }
         });
+
+        // Update bottom nav active state
+        bottomNavLinks.forEach(link => {
+            link.classList.remove("active");
+            if (link.getAttribute("data-section") === current) {
+                link.classList.add("active");
+            }
+        });
+
+        ticking = false;
+    }
+
+    window.addEventListener("scroll", function() {
+        lastScrollY = window.scrollY;
+        
+        if (!ticking) {
+            requestAnimationFrame(updateActiveNav);
+            ticking = true;
+        }
+    }, { passive: true });
+
+    // Handle bottom nav click
+    bottomNavLinks.forEach(link => {
+        link.addEventListener("click", function(e) {
+            e.preventDefault();
+            const sectionId = this.getAttribute("data-section");
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: "smooth" });
+            }
+        });
     });
 });
+
 
 
 //Heading Animation
