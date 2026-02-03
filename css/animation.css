@@ -1,12 +1,12 @@
 :root {
-	--bg-color: #1a237e;
-	/* Deep ocean blue for the sea/background */
-	--snd-bg-color: #1565c0;
-	/* Lighter blue for sections */
-	--text-color: #ffffff;
-	/* White text for readability */
-	--main-color: #ffcc00;
-	/* Straw hat gold / Luffy accent */
+	--bg-color: #0f172a;
+	/* Modern dark charcoal slate */
+	--snd-bg-color: #1a2847;
+	/* Slightly lighter slate for sections */
+	--text-color: #f0f9ff;
+	/* Crisp white for excellent readability */
+	--main-color: #00d9ff;
+	/* Modern cyan/turquoise accent */
 }
 
 /* Floating image button styles */
@@ -292,7 +292,7 @@
 	position: fixed;
 	bottom: 30px;
 	right: 30px;
-	background: rgba(26, 35, 126, 0.8);
+	background: rgba(15, 23, 42, 0.8);
 	color: var(--text-color);
 	padding: 8px 16px;
 	border-radius: 20px;
@@ -520,12 +520,12 @@
 
 .marquee:before {
 	left: 0;
-	background: linear-gradient(to right, #1a237e 0%, transparent 100%);
+	background: linear-gradient(to right, #0f172a 0%, transparent 100%);
 }
 
 .marquee:after {
 	right: 0;
-	background: linear-gradient(to left, #1a237e 0%, transparent 100%);
+	background: linear-gradient(to left, #0f172a 0%, transparent 100%);
 }
 
 .marquee-content {
@@ -559,8 +559,8 @@
 
 .marquee-content li img:hover {
 	transform: scale(1.15);
-	box-shadow: 0 8px 25px rgba(255, 204, 0, 0.3);
-	background: rgba(255, 204, 0, 0.1);
+	box-shadow: 0 8px 25px rgba(0, 217, 255, 0.3);
+	background: rgba(0, 217, 255, 0.1);
 }
 
 @keyframes scrolling {
