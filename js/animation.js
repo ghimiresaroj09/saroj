@@ -253,16 +253,31 @@ window.addEventListener("resize", () => {
 
 
 
-//Mouse Trailing animation
+//Mouse Trailing animation with Scratch Effect
 
 const mainCursor = document.querySelector('.cursor');  // Big circle
 const tailCursor = document.querySelector('.cursor2'); // Trailing small circle
+const scratchCanvas = document.getElementById('scratch-canvas');
+const ctx = scratchCanvas.getContext('2d');
+
+// Set canvas size to window size
+function resizeCanvas() {
+  scratchCanvas.width = window.innerWidth;
+  scratchCanvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
 
 let mouseX = 0, mouseY = 0; // Real mouse pointer
 let tailX = 0, tailY = 0;   // Tail cursor position
+let prevTailX = 0, prevTailY = 0; // Previous tail position for drawing lines
 
 // Set offset distance for tail cursor behind the main pointer
 const tailOffsetDistance = 20; // pixels
+
+// Array to store scratch trails with their timestamps
+const scratches = [];
+const scratchFadeDuration = 2000; // 2 seconds fade out
 
 document.addEventListener('mousemove', (e) => {
   mouseX = e.clientX;
@@ -272,6 +287,16 @@ document.addEventListener('mousemove', (e) => {
   mainCursor.style.left = `${mouseX}px`;
   mainCursor.style.top = `${mouseY}px`;
 });
+
+function drawScratchLine(fromX, fromY, toX, toY, timestamp) {
+  scratches.push({
+    fromX,
+    fromY,
+    toX,
+    toY,
+    startTime: timestamp
+  });
+}
 
 function animateTail() {
   const lag = 0.15; // Smaller = slower trailing (higher lag means slower movement)
@@ -291,10 +316,60 @@ function animateTail() {
     offsetY = (dy / dist) * tailOffsetDistance;
   }
   
-  // Position tail cursor behind the main cursor, no centering transform in CSS,
-  // so set left/top directly
+  // Position tail cursor behind the main cursor
   tailCursor.style.left = `${tailX + offsetX}px`;
   tailCursor.style.top = `${tailY + offsetY}px`;
+
+  // Draw a line from previous position to current position if there's movement
+  const movementDistance = Math.sqrt(
+    Math.pow(tailX - prevTailX, 2) + Math.pow(tailY - prevTailY, 2)
+  );
+  
+  // Only draw if tail has moved significantly
+  if(movementDistance > 2) {
+    drawScratchLine(prevTailX, prevTailY, tailX, tailY, Date.now());
+    prevTailX = tailX;
+    prevTailY = tailY;
+  }
+
+  // Clear and redraw canvas
+  ctx.clearRect(0, 0, scratchCanvas.width, scratchCanvas.height);
+  
+  const currentTime = Date.now();
+  
+  // Draw all active scratches
+  scratches.forEach((scratch, index) => {
+    const elapsed = currentTime - scratch.startTime;
+    const progress = elapsed / scratchFadeDuration;
+    
+    // Remove scratches that have completely faded
+    if(progress >= 1) {
+      scratches.splice(index, 1);
+      return;
+    }
+    
+    // Calculate opacity (fade out effect)
+    const opacity = 1 - progress;
+    
+    // Draw the scratch line with fading effect
+    ctx.strokeStyle = `rgba(100, 200, 255, ${opacity * 0.6})`;
+    ctx.lineWidth = 3;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    
+    ctx.beginPath();
+    ctx.moveTo(scratch.fromX, scratch.fromY);
+    ctx.lineTo(scratch.toX, scratch.toY);
+    ctx.stroke();
+    
+    // Add a subtle glow effect by drawing wider semi-transparent lines
+    ctx.strokeStyle = `rgba(0, 217, 255, ${opacity * 0.2})`;
+    ctx.lineWidth = 8;
+    ctx.beginPath();
+    ctx.moveTo(scratch.fromX, scratch.fromY);
+    ctx.lineTo(scratch.toX, scratch.toY);
+    ctx.stroke();
+  });
 
   requestAnimationFrame(animateTail);
 }
