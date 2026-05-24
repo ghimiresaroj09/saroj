@@ -1384,11 +1384,6 @@ span {
   color: var(--text-color);
 }
 
-/* For left-side timeline items place media on the right */
-.timeline-item.left .timeline-card {
-  /* keep block layout; switch floated media */
-}
-
 /* Ensure text inside card follows the item alignment */
 .timeline-item.left .timeline-card h3,
 .timeline-item.left .timeline-card h4,
