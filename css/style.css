@@ -2106,6 +2106,62 @@ span {
     height: 150px;
     /* Adjust size as needed */
   }
+
+  /* Reduce motion on mobile: keep intro, typing, and carousel, but disable heavy scroll effects */
+  body::before,
+  .home::before,
+  .spin-container,
+  .shape,
+  .bd,
+  .about-img img,
+  .service-box,
+  .service-box i,
+  .portfolio-box,
+  .portfolio-box *,
+  .timeline-item,
+  .timeline-card,
+  .timeline-card::before,
+  .contact-info p,
+  .contact-info h3,
+  .contact-social-media a,
+  .social-media a,
+  .download_btn,
+  .about-content .btn,
+  .contact-form button,
+  .footer-social a,
+  .footer-links a,
+  .footer-contact-list a,
+  .navbar a,
+  .header,
+  .bottom-nav,
+  .bottom-nav-link,
+  .timeline-filter {
+    animation: none !important;
+    transition-duration: 0s !important;
+  }
+
+  .service-box,
+  .portfolio-box,
+  .timeline-item,
+  .timeline-card,
+  .about-img img,
+  .contact-info p,
+  .contact-info h3,
+  .contact-social-media a,
+  .social-media a,
+  .download_btn,
+  .about-content .btn,
+  .contact-form button,
+  .footer-social a,
+  .footer-links a,
+  .footer-contact-list a,
+  .navbar a,
+  .bottom-nav-link,
+  .timeline-filter {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
 }
 
 @media (max-width: 480px) {

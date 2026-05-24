@@ -351,6 +351,8 @@ document.addEventListener("DOMContentLoaded", () => {
     type();
 });
 
+  const isMobileViewport = window.matchMedia("(max-width: 768px)").matches;
+
 
 
 
@@ -414,22 +416,24 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     //Heading Animation
-    const headings = document.querySelectorAll('.heading');
+    if (!isMobileViewport) {
+      const headings = document.querySelectorAll('.heading');
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate');   // Animate when visible
-          } else {
-            entry.target.classList.remove('animate'); // Remove animation when out of view
-          }
-        });
-      },
-      { threshold: 0.3 } // Adjust how much of the heading must be visible
-    );
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate');   // Animate when visible
+            } else {
+              entry.target.classList.remove('animate'); // Remove animation when out of view
+            }
+          });
+        },
+        { threshold: 0.3 } // Adjust how much of the heading must be visible
+      );
 
-    headings.forEach(h => observer.observe(h));
+      headings.forEach(h => observer.observe(h));
+    }
 
     // Timeline filtering
     const timelineFilters = document.querySelectorAll('.timeline-filter');
@@ -459,59 +463,63 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     //Fav Icon animation
-    const serviceIcons = document.querySelectorAll('.service-box i');
+    if (!isMobileViewport) {
+      const serviceIcons = document.querySelectorAll('.service-box i');
 
-    const iconObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          const icon = entry.target;
-          const isDesktop = window.innerWidth > 768;
+      const iconObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            const icon = entry.target;
+            const isDesktop = window.innerWidth > 768;
 
-          if (entry.isIntersecting) {
-            // Add animation with stagger
-            const index = Array.from(serviceIcons).indexOf(icon);
-            setTimeout(() => {
-              icon.classList.add('animate-bounce');
-            }, index * 150);
-          } else if (isDesktop) {
-            // On desktop, remove class when scrolling out to allow re-trigger
-            icon.classList.remove('animate-bounce');
-          }
-          // On mobile, do nothing when scrolling out (animation stays)
-        });
-      },
-      { threshold: 0.3 }
-    );
+            if (entry.isIntersecting) {
+              // Add animation with stagger
+              const index = Array.from(serviceIcons).indexOf(icon);
+              setTimeout(() => {
+                icon.classList.add('animate-bounce');
+              }, index * 150);
+            } else if (isDesktop) {
+              // On desktop, remove class when scrolling out to allow re-trigger
+              icon.classList.remove('animate-bounce');
+            }
+            // On mobile, do nothing when scrolling out (animation stays)
+          });
+        },
+        { threshold: 0.3 }
+      );
 
-    // Observe each icon
-    serviceIcons.forEach(icon => iconObserver.observe(icon));
+      // Observe each icon
+      serviceIcons.forEach(icon => iconObserver.observe(icon));
+    }
 
 
 
 
     //Social Media
-    const socialIcons = document.querySelectorAll('.social-media a');
+    if (!isMobileViewport) {
+      const socialIcons = document.querySelectorAll('.social-media a');
 
-    const socialObserver = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            socialIcons.forEach((icon, index) => {
-              setTimeout(() => {
-                icon.style.opacity = "1"; // ensure visible
-                icon.classList.add('animate-fall');
-              }, index * 150); // stagger each icon by 150ms
-            });
+      const socialObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              socialIcons.forEach((icon, index) => {
+                setTimeout(() => {
+                  icon.style.opacity = "1"; // ensure visible
+                  icon.classList.add('animate-fall');
+                }, index * 150); // stagger each icon by 150ms
+              });
 
-            observer.disconnect(); // stop observing after first trigger
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
+              observer.disconnect(); // stop observing after first trigger
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
 
-    if (socialIcons.length > 0) {
-      socialObserver.observe(socialIcons[0]); // observe first icon to trigger all
+      if (socialIcons.length > 0) {
+        socialObserver.observe(socialIcons[0]); // observe first icon to trigger all
+      }
     }
 
 
@@ -602,24 +610,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     //Contact Info
-    const contactItems = document.querySelectorAll('.contact-info p, .contact-info h3');
+    if (!isMobileViewport) {
+      const contactItems = document.querySelectorAll('.contact-info p, .contact-info h3');
 
-    const contactObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          contactItems.forEach((item, i) => {
-            setTimeout(() => {
-              item.classList.add('contact-animate');
-            }, i * 150); // stagger animation
-          });
-        } else {
-          // Remove animation when leaving the section (optional)
-          contactItems.forEach(item => item.classList.remove('contact-animate'));
-        }
-      });
-    }, { threshold: 0.3 });
+      const contactObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            contactItems.forEach((item, i) => {
+              setTimeout(() => {
+                item.classList.add('contact-animate');
+              }, i * 150); // stagger animation
+            });
+          } else {
+            // Remove animation when leaving the section (optional)
+            contactItems.forEach(item => item.classList.remove('contact-animate'));
+          }
+        });
+      }, { threshold: 0.3 });
 
-    contactObserver.observe(document.querySelector('.contact-info'));
+      contactObserver.observe(document.querySelector('.contact-info'));
+    }
 });
 
 // Floating labels for contact form
@@ -666,117 +676,127 @@ window.addEventListener("load", () => {
 });
 
 // IntersectionObserver - triggers every time section becomes visible
-const smSection = document.querySelector(".contact-social-media");
-const smIcons = document.querySelectorAll(".contact-social-media a");
+if (!isMobileViewport) {
+  const smSection = document.querySelector(".contact-social-media");
+  const smIcons = document.querySelectorAll(".contact-social-media a");
 
-const smObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
+  const smObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
 
-        smIcons.forEach((icon, index) => {
-          setTimeout(() => {
-            icon.classList.add("quake-on-visible");
-
+          smIcons.forEach((icon, index) => {
             setTimeout(() => {
-              icon.classList.remove("quake-on-visible");
-            }, 800);
+              icon.classList.add("quake-on-visible");
 
-          }, index * 120);
-        });
+              setTimeout(() => {
+                icon.classList.remove("quake-on-visible");
+              }, 800);
 
-      }
-    });
-  },
-  { threshold: 0.3 }
-);
+            }, index * 120);
+          });
 
-smObserver.observe(smSection);
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  smObserver.observe(smSection);
+}
 
 
 //Portfolio
-const portfolioBoxes = document.querySelectorAll('.portfolio-box');
+if (!isMobileViewport) {
+  const portfolioBoxes = document.querySelectorAll('.portfolio-box');
 
-const portfolioObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      // Stagger each box once
-      portfolioBoxes.forEach((box, index) => {
-        if(!box.classList.contains('animate-bloom')) {
-          setTimeout(() => {
-            box.classList.add('animate-bloom');
-          }, index * 200);
-        }
-      });
-    }
-  });
-}, { threshold: 0.3 });
+  const portfolioObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        // Stagger each box once
+        portfolioBoxes.forEach((box, index) => {
+          if(!box.classList.contains('animate-bloom')) {
+            setTimeout(() => {
+              box.classList.add('animate-bloom');
+            }, index * 200);
+          }
+        });
+      }
+    });
+  }, { threshold: 0.3 });
 
-portfolioBoxes.forEach(box => portfolioObserver.observe(box));
+  portfolioBoxes.forEach(box => portfolioObserver.observe(box));
+}
 
 
 
 //Career Timeline
-const timelineItems = document.querySelectorAll('.timeline-item');
+if (!isMobileViewport) {
+  const timelineItems = document.querySelectorAll('.timeline-item');
 
-if (timelineItems.length > 0) {
-  const timelineObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      const item = entry.target;
+  if (timelineItems.length > 0) {
+    const timelineObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const item = entry.target;
 
-      if (entry.isIntersecting) {
-        item.classList.add('animate-timeline');
-      } else {
-        item.classList.remove('animate-timeline');
-      }
+        if (entry.isIntersecting) {
+          item.classList.add('animate-timeline');
+        } else {
+          item.classList.remove('animate-timeline');
+        }
+      });
+    }, { threshold: 0.35 });
+
+    timelineItems.forEach((item, index) => {
+      item.style.transitionDelay = `${index * 120}ms`;
+      timelineObserver.observe(item);
     });
-  }, { threshold: 0.35 });
-
-  timelineItems.forEach((item, index) => {
-    item.style.transitionDelay = `${index * 120}ms`;
-    timelineObserver.observe(item);
-  });
+  }
 }
 
 
 
 //Services
-const serviceBoxes = document.querySelectorAll('.service-box');
+if (!isMobileViewport) {
+  const serviceBoxes = document.querySelectorAll('.service-box');
 
-const serviceObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      // Stagger each box
-      serviceBoxes.forEach((box, index) => {
-        // Only add if not already added
-        if(!box.classList.contains('animate-service')) {
-          setTimeout(() => {
-            box.classList.add('animate-service');
-          }, index * 200);
-        }
-      });
-    }
-  });
-}, { threshold: 0.3 });
+  const serviceObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        // Stagger each box
+        serviceBoxes.forEach((box, index) => {
+          // Only add if not already added
+          if(!box.classList.contains('animate-service')) {
+            setTimeout(() => {
+              box.classList.add('animate-service');
+            }, index * 200);
+          }
+        });
+      }
+    });
+  }, { threshold: 0.3 });
 
-serviceBoxes.forEach(box => serviceObserver.observe(box));
+  serviceBoxes.forEach(box => serviceObserver.observe(box));
+}
 
 
 
 //About Image
-const aboutImg = document.querySelector('.about-img img');
+if (!isMobileViewport) {
+  const aboutImg = document.querySelector('.about-img img');
 
-const imgObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add('animate-img');
-    } else {
-      entry.target.classList.remove('animate-img'); // replay if scrolling back
-    }
-  });
-}, { threshold: 0.3 });
+  const imgObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('animate-img');
+      } else {
+        entry.target.classList.remove('animate-img'); // replay if scrolling back
+      }
+    });
+  }, { threshold: 0.3 });
 
-if (aboutImg) imgObserver.observe(aboutImg);
+  if (aboutImg) imgObserver.observe(aboutImg);
+}
 
 // ===== INITIALIZE 3D EFFECTS =====
 // Add 3D tilt effect with a slight delay to ensure DOM is ready
