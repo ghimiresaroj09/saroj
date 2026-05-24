@@ -1208,6 +1208,314 @@ span {
 }
 
 
+/* Career Timeline Section Styles */
+.timeline-section {
+  text-align: center;
+  gap: 2rem;
+  background: linear-gradient(135deg, rgba(21, 31, 63, 0.32) 0%, rgba(15, 23, 42, 0.18) 100%);
+  padding: 7rem 9%;
+  border-radius: 2rem;
+  box-shadow: 0 0 1.4rem rgba(0, 0, 0, 0.16);
+  margin: 1.5rem 0;
+  position: relative;
+  overflow: hidden;
+  min-height: auto;
+}
+
+.timeline-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 15%, rgba(0, 217, 255, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 80% 85%, rgba(167, 139, 250, 0.08) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.timeline-subtitle {
+  max-width: 58rem;
+  margin: 0.5rem auto 0;
+  font-size: 1.45rem;
+  line-height: 1.65;
+  color: rgba(240, 249, 255, 0.78);
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-track {
+  position: relative;
+  max-width: 105rem;
+  margin: 4rem auto 0;
+  padding: 1rem 0;
+}
+
+.timeline-track::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 0.4rem;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, transparent 0%, var(--main-color) 12%, var(--accent-purple) 88%, transparent 100%);
+  box-shadow: 0 0 2rem rgba(0, 217, 255, 0.25);
+  border-radius: 999px;
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 1.3rem 3.2rem;
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s ease;
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+  transform: translate3d(-3rem, 1.5rem, 0);
+}
+
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+  transform: translate3d(3rem, 1.5rem, 0);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 2.8rem;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--main-color), var(--accent-purple));
+  box-shadow: 0 0 0 0.45rem rgba(10, 14, 39, 0.95), 0 0 2rem rgba(0, 217, 255, 0.4);
+  z-index: 2;
+}
+
+.timeline-item.left::before {
+  right: -0.8rem;
+}
+
+.timeline-item.right::before {
+  left: -0.8rem;
+}
+
+.timeline-card {
+  position: relative;
+  padding: 1.8rem;
+  border-radius: 2rem;
+  border: 1px solid rgba(0, 217, 255, 0.14);
+  background: linear-gradient(145deg, rgba(21, 31, 63, 0.78) 0%, rgba(15, 23, 42, 0.58) 100%);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+  display: block;
+}
+
+.timeline-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.08) 50%, transparent 100%);
+  transform: translateX(-100%);
+  transition: transform 0.7s ease;
+}
+
+.timeline-card:hover {
+  transform: translateY(-0.5rem);
+  border-color: rgba(0, 217, 255, 0.28);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28), 0 0 2rem rgba(0, 217, 255, 0.1);
+}
+
+.timeline-card:hover::before {
+  transform: translateX(100%);
+}
+
+.timeline-media {
+  width: 6.6rem;
+  height: 6.6rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 0.3rem solid rgba(0, 217, 255, 0.25);
+  box-shadow: 0 0 0 0.8rem rgba(0, 217, 255, 0.06), 0 0 2rem rgba(0, 217, 255, 0.2);
+  margin: 0 1.6rem 0 0;
+  float: left;
+  position: relative;
+}
+
+.timeline-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.timeline-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+}
+
+.timeline-date {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 1.1rem;
+  margin-bottom: 1rem;
+  border-radius: 999px;
+  font-size: 1.05rem;
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+  color: var(--main-color);
+  background: rgba(0, 217, 255, 0.08);
+  border: 1px solid rgba(0, 217, 255, 0.16);
+}
+
+.timeline-card h3 {
+  font-size: 1.95rem;
+  margin-bottom: 0.6rem;
+  color: var(--text-color);
+}
+
+/* For left-side timeline items place media on the right */
+.timeline-item.left .timeline-card {
+  /* keep block layout; switch floated media */
+}
+
+/* Ensure text inside card follows the item alignment */
+.timeline-item.left .timeline-card h3,
+.timeline-item.left .timeline-card h4,
+.timeline-item.left .timeline-card p,
+.timeline-item.left .timeline-card .timeline-date {
+  text-align: right;
+}
+
+/* Place media on the right for left items */
+.timeline-item.left .timeline-media {
+  float: right;
+  margin: 0 0 0 1.6rem;
+}
+
+/* Clear floats inside card */
+.timeline-card::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.timeline-card h4 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-bottom: 0.9rem;
+  color: var(--main-color);
+}
+
+.timeline-card p {
+  font-size: 1.35rem;
+  line-height: 1.65;
+  color: rgba(240, 249, 255, 0.82);
+}
+
+.timeline-item.animate-timeline {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.timeline-item.animate-timeline .timeline-card {
+  animation: timelineRise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes timelineRise {
+  from {
+    transform: translateY(1.8rem) scale(0.98);
+    filter: blur(0.3rem);
+  }
+
+  to {
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@media (max-width: 992px) {
+  .timeline-track::before {
+    left: 2.4rem;
+    transform: none;
+  }
+
+  .timeline-item,
+  .timeline-item.left,
+  .timeline-item.right {
+    width: 100%;
+    left: 0;
+    text-align: left;
+    padding: 1.5rem 0 1.5rem 5rem;
+    transform: translate3d(0, 1.5rem, 0);
+  }
+
+  .timeline-item::before,
+  .timeline-item.left::before,
+  .timeline-item.right::before {
+    left: 1.7rem;
+    right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline-section {
+    padding: 5rem 5%;
+  }
+
+  .timeline-track {
+    margin-top: 3rem;
+  }
+
+  .timeline-item,
+  .timeline-item.left,
+  .timeline-item.right {
+    padding-left: 4.8rem;
+  }
+
+  .timeline-card {
+    padding: 1.5rem;
+  }
+
+  .timeline-card h3 {
+    font-size: 1.8rem;
+  }
+
+  .timeline-card h4 {
+    font-size: 1.25rem;
+  }
+
+  .timeline-card p {
+    font-size: 1.28rem;
+  }
+
+  .timeline-media {
+    width: 5.8rem;
+    height: 5.8rem;
+  }
+
+  .timeline-track::before {
+    left: 1.8rem;
+  }
+
+  .timeline-item::before,
+  .timeline-item.left::before,
+  .timeline-item.right::before {
+    left: 1.15rem;
+  }
+}
+
+
 /* Portfolio Section Styles */
 .portfolio {
   text-align: center;
@@ -1520,6 +1828,78 @@ span {
   resize: vertical;
 }
 
+/* Floating label form fields */
+.form-field {
+  position: relative;
+  margin-bottom: 0.6rem;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  padding: 1.2rem 1.2rem;
+  border-radius: 0.9rem;
+  font-size: 12px;
+}
+
+.form-field label {
+  position: absolute;
+  left: 1.15rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.22s cubic-bezier(0.2,0,0,1), font-size 0.18s ease, color 0.18s ease;
+  pointer-events: none;
+  color: rgba(240,249,255,0.6);
+  background: transparent !important;
+  padding: 0 0.35rem;
+  font-size: 1.35rem;
+}
+
+.form-field.filled label,
+.form-field.focused label {
+  /* move label above the field (outside the border) */
+  transform: none;
+  top: -0.6rem;
+  font-size: 1.05rem;
+  color: var(--main-color);
+  background: transparent !important;
+  padding: 0 0.5rem;
+}
+
+.textarea-field label {
+  left: 1.2rem;
+}
+
+/* Position textarea label at top-left by default (avoid centering inside tall textarea) */
+.textarea-field label {
+  top: 1rem;
+  transform: none;
+  text-align: left;
+  z-index: 5;
+  /* remove background on labels */
+  background: transparent !important;
+  border-radius: 4px;
+}
+
+/* Ensure textarea content doesn't overlap the label */
+.textarea-field textarea {
+  padding-top: 2.2rem;
+}
+
+/* When textarea is focused/filled move label slightly higher than inputs */
+.textarea-field.filled label,
+.textarea-field.focused label {
+  top: -0.8rem;
+  font-size: 1.05rem;
+  padding: 0 0.45rem;
+}
+
+/* Small devices: slightly smaller label font */
+@media (max-width: 480px) {
+  .form-field label { font-size: 1.25rem; left: 1rem }
+  .form-field.filled label, .form-field.focused label { transform: translateY(-140%) scale(0.9); }
+}
+
 .contact-form button {
   background: linear-gradient(135deg, var(--main-color) 0%, #00a8cc 100%);
   color: var(--bg-color);
@@ -1789,16 +2169,421 @@ span {
 
 /* Footer */
 .footer {
-  background: var(--bg-color);
-  border-radius: 2rem;
+  background: linear-gradient(180deg, var(--bg-color), var(--snd-bg-color));
   color: var(--text-color);
-  text-align: center;
-  padding: 2rem 0;
+  padding: 3rem 5%;
+  border-radius: 1.6rem;
+  margin-top: 3rem;
+  font-family: inherit;
+  font-size: 1.6rem;
 }
 
-.footer p {
-  font-size: 1.5rem;
-  margin-bottom: .5rem;
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 2.2rem;
+  align-items: start;
+}
+
+.footer-about img {
+  height: 96px;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* Hide header when scrolling down */
+.header--hidden {
+  transform: translateY(-120%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.32s ease, opacity 0.28s ease;
+}
+
+.footer-about p {
+  color: var(--text-color);
+  line-height: 1.6;
+  font-size: 1.4rem;
+}
+
+.footer-links h3,
+.footer-contact h3 {
+  color: var(--main-color);
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-links a {
+  color: var(--text-color);
+  opacity: 0.9;
+  text-decoration: none;
+  font-size: 1.35rem;
+  transition: color 0.18s ease, transform 0.18s ease;
+}
+
+.footer-links a:hover {
+  color: var(--main-color);
+  transform: translateX(4px);
+}
+
+.footer-contact p {
+  margin: 0.4rem 0;
+  font-size: 1.35rem;
+  color: var(--text-color);
+}
+
+.footer-social {
+  margin-top: 0.8rem;
+  display: flex;
+  gap: 0.8rem;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.03);
+  color: rgba(240,249,255,0.95);
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.18s ease;
+}
+
+.footer-social a:hover {
+  background: linear-gradient(90deg, var(--main-color), var(--accent-purple));
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  margin-top: 2.4rem;
+  padding-top: 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  color: rgba(240, 249, 255, 0.6);
+  font-size: 1.25rem;
+}
+
+.footer-credit a {
+  color: rgba(240, 249, 255, 0.8);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(255,255,255,0.04);
+}
+
+/* Footer contact list */
+.footer-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--text-color);
+  font-size: 1.35rem;
+}
+
+.footer-contact-list a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.footer-contact-list a:hover {
+  color: var(--main-color);
+}
+
+/* Force location text color and remove unwanted spacing around comma */
+.footer-contact-list .location,
+.footer-contact-list .country {
+  color: var(--text-color) !important;
+  white-space: nowrap;
+}
+
+.footer-contact-list li i {
+  color: var(--main-color);
+}
+
+/* Accessible visually-hidden label */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+@media (max-width: 992px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer-about p {
+    font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* Enhanced mobile responsiveness for footer */
+@media (max-width: 480px) {
+  .footer {
+    padding: 2.2rem 4%;
+    padding-bottom: calc(2.2rem + 7rem); /* keep space for bottom-nav */
+    border-radius: 1rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .footer-about img {
+    height: 80px;
+    margin: 0 auto 0.8rem;
+  }
+
+  .footer-about p {
+    font-size: 1.3rem;
+  }
+
+  .footer-links h3,
+  .footer-contact h3 {
+    text-align: center;
+  }
+
+  .footer-links ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .footer-links li {
+    margin: 0;
+  }
+
+  .footer-contact-list {
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+  }
+
+  .footer-social {
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 0.6rem;
+  }
+
+  .footer-social a {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    padding: 0.2rem;
+  }
+
+  .footer-bottom {
+    gap: 0.6rem;
+    font-size: 1.15rem;
+  }
+
+  /* Larger touch targets for links */
+  .footer a {
+    padding: 6px 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Focus states for accessibility */
+.footer a:focus {
+  outline: 3px solid rgba(0, 217, 255, 0.22);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Strong override for tablet/large-mobile to ensure consistent single-column timeline */
+@media (max-width: 992px) {
+  .timeline-track::before {
+    display: none !important;
+  }
+
+  .timeline-item,
+  .timeline-item.left,
+  .timeline-item.right {
+    width: 100% !important;
+    left: 0 !important;
+    transform: none !important;
+    margin: 1rem 0 !important;
+    padding: 0 !important;
+    text-align: center !important;
+    opacity: 1 !important;
+  }
+
+  .timeline-item::before,
+  .timeline-item.left::before,
+  .timeline-item.right::before {
+    display: none !important;
+  }
+
+  .timeline-card {
+    margin: 0 auto !important;
+    width: 100% !important;
+    padding: 1.2rem 1.4rem !important;
+    border-radius: 1.2rem !important;
+  }
+
+  .timeline-media {
+    float: none !important;
+    display: block !important;
+    margin: 0 auto 0.8rem !important;
+    width: 68px !important;
+    height: 68px !important;
+  }
+
+  .timeline-card h3,
+  .timeline-card h4,
+  .timeline-card p,
+  .timeline-card .timeline-date {
+    text-align: center !important;
+  }
+
+  .timeline-item {
+    transform: translateY(0.4rem) !important;
+  }
+}
+
+/* Mobile-specific timeline redesign (single-column stacked cards) */
+@media (max-width: 768px) {
+  .timeline-section {
+    padding: 4rem 4% 2rem;
+  }
+
+  /* Remove center spine and markers for mobile to simplify visual hierarchy */
+  .timeline-track::before {
+    display: none;
+  }
+
+  .timeline-item,
+  .timeline-item.left,
+  .timeline-item.right {
+    width: 100% !important;
+    left: 0 !important;
+    transform: none !important;
+    padding: 0 !important;
+    margin: 1rem 0 !important;
+  }
+
+  /* Hide the little connector dot */
+  .timeline-item::before,
+  .timeline-item.left::before,
+  .timeline-item.right::before {
+    display: none !important;
+  }
+
+  /* Make the card full-width and center it */
+  .timeline-card {
+    margin: 0 auto;
+    width: 100%;
+    padding: 1.2rem 1.4rem;
+    border-radius: 1.2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.24);
+    background: linear-gradient(180deg, rgba(21,31,63,0.86), rgba(15,23,42,0.7));
+  }
+
+  /* Stack media above text, center it */
+  .timeline-media {
+    float: none !important;
+    display: block;
+    margin: 0 auto 0.9rem;
+    width: 68px !important;
+    height: 68px !important;
+    border-radius: 12rem;
+    border-width: 0.28rem;
+  }
+
+  .timeline-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .timeline-date {
+    display: inline-block;
+    margin: 0 0 0.6rem 0;
+    font-size: 1.1rem;
+    padding: 0.45rem 0.9rem;
+  }
+
+  .timeline-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.4rem;
+    text-align: center;
+  }
+
+  .timeline-card h4 {
+    font-size: 1.15rem;
+    text-align: center;
+    margin-bottom: 0.6rem;
+  }
+
+  .timeline-card p,
+  .timeline-paragraph {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    text-align: center;
+    margin: 0;
+  }
+
+  /* Remove left/right-specific text alignment rules on mobile */
+  .timeline-item.left .timeline-card h3,
+  .timeline-item.left .timeline-card h4,
+  .timeline-item.left .timeline-card p,
+  .timeline-item.left .timeline-card .timeline-date {
+    text-align: center !important;
+  }
+
+  /* Slightly reduce animation distance so cards animate cleanly on small screens */
+  .timeline-item {
+    transform: translateY(0.6rem);
+  }
 }
 
 /* Bottom Navigation for Mobile */
@@ -1819,6 +2604,13 @@ span {
   transform: translateZ(0);
   backface-visibility: hidden;
   contain: layout style paint;
+  transition: transform 0.32s ease, opacity 0.32s ease;
+}
+
+.bottom-nav.bottom-nav--hidden {
+  transform: translate3d(0, 110%, 0);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .bottom-nav-link {
@@ -1914,5 +2706,143 @@ span {
 
   .footer{
     margin-bottom: 30px;
+  }
+}
+
+.timeline-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-filter {
+  background: transparent;
+  color: rgba(240, 249, 255, 0.9);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.timeline-filter:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.timeline-filter.active {
+  background: linear-gradient(90deg, var(--main-color), var(--accent-purple));
+  color: var(--bg-color);
+  border-color: rgba(0,0,0,0.12);
+}
+
+.timeline-item.hidden {
+  opacity: 0 !important;
+  transform: translate3d(0, 1.2rem, 0) !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Shorter two-column footer on narrow phones to reduce vertical length */
+@media (max-width: 420px) {
+  .footer {
+    padding: 1.6rem 3%;
+    padding-bottom: calc(1.6rem + 6rem);
+  }
+
+  /* Two columns: left for links, right for contact + social */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    align-items: start;
+    text-align: left;
+  }
+
+  .footer-about {
+    grid-column: 1 / -1;
+    margin-bottom: 0.4rem;
+  }
+
+  .footer-about p {
+    font-size: 1.15rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .footer-links {
+    padding-right: 0.6rem;
+  }
+
+  /* Hide the Services column on narrow phones to save vertical space */
+  .footer-links[aria-label="Services"] {
+    display: none;
+  }
+
+  .footer-links ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+
+  .footer-contact {
+    padding-left: 0.6rem;
+  }
+
+  .footer-contact-list {
+    font-size: 1.2rem;
+  }
+
+  .footer-social {
+    justify-content: flex-start;
+    gap: 0.5rem;
+    margin-top: 0.4rem;
+  }
+
+  .footer-bottom {
+    grid-column: 1 / -1;
+    padding-top: 1rem;
+    font-size: 1.05rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    align-items: center;
+  }
+
+  .footer-about img {
+    height: 72px;
+  }
+}
+
+/* Very small screens: show only copyright line in footer */
+@media (max-width: 480px) {
+  .footer {
+    padding: 1rem 2%;
+    padding-bottom: calc(1rem + 6.5rem);
+  }
+
+  /* Hide main footer grid content to save space */
+  .footer-grid {
+    display: none !important;
+  }
+
+  /* Show only footer-bottom paragraph (copyright) */
+  .footer-bottom {
+    display: block !important;
+    text-align: center;
+    padding-top: 0.6rem;
+  }
+
+  .footer-bottom p { display: none !important; }
+  .footer-bottom p:first-child {
+    display: block !important;
+    color: var(--text-color) !important;
+    font-size: 1.05rem !important;
+    margin: 0 auto !important;
   }
 }

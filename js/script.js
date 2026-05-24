@@ -222,6 +222,8 @@ const closeIcon = document.getElementById('close-icon');
 const navbar = document.getElementById('navbar');
 const navLinks = document.querySelectorAll('.nav-link');
 const header = document.querySelector('.header');
+const bottomNav = document.getElementById('bottom-nav');
+let lastScrollY = window.scrollY;
 
 function resetMenuIcons() {
   if (window.innerWidth > 768) { // desktop
@@ -243,11 +245,33 @@ window.addEventListener('resize', resetMenuIcons);
 // Header scroll effect
 let scrollTimer;
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
+  const currentScrollY = window.scrollY;
+  const scrollDelta = currentScrollY - lastScrollY;
+
+  if (currentScrollY > 50) {
     header.classList.add('scrolled');
   } else {
     header.classList.remove('scrolled');
   }
+
+  // Hide header when scrolling down, show when scrolling up
+  if (currentScrollY > 100 && scrollDelta > 6) {
+    header.classList.add('header--hidden');
+  } else if (scrollDelta < -6 || currentScrollY <= 80) {
+    header.classList.remove('header--hidden');
+  }
+
+  if (bottomNav && window.innerWidth <= 768) {
+    if (currentScrollY <= 80) {
+      bottomNav.classList.remove('bottom-nav--hidden');
+    } else if (scrollDelta > 6) {
+      bottomNav.classList.add('bottom-nav--hidden');
+    } else if (scrollDelta < -6) {
+      bottomNav.classList.remove('bottom-nav--hidden');
+    }
+  }
+
+  lastScrollY = currentScrollY;
   
   // Debounce active nav update
   clearTimeout(scrollTimer);
@@ -406,6 +430,31 @@ document.addEventListener("DOMContentLoaded", function() {
     );
 
     headings.forEach(h => observer.observe(h));
+
+    // Timeline filtering
+    const timelineFilters = document.querySelectorAll('.timeline-filter');
+    const timelineItems = document.querySelectorAll('.timeline-item');
+
+    function applyFilter(filter) {
+      timelineFilters.forEach(b => b.classList.toggle('active', b.getAttribute('data-filter') === filter));
+
+      timelineItems.forEach(item => {
+        const cat = item.getAttribute('data-category') || 'work';
+        if (filter === 'all' || filter === cat) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    }
+
+    if (timelineFilters.length > 0) {
+      timelineFilters.forEach(btn => {
+        btn.addEventListener('click', () => applyFilter(btn.getAttribute('data-filter')));
+      });
+      // default
+      applyFilter('all');
+    }
 
 
 
@@ -573,6 +622,33 @@ document.addEventListener("DOMContentLoaded", function() {
     contactObserver.observe(document.querySelector('.contact-info'));
 });
 
+// Floating labels for contact form
+document.addEventListener('DOMContentLoaded', () => {
+  const fields = document.querySelectorAll('.form-field input, .form-field textarea');
+  fields.forEach(field => {
+    const wrapper = field.closest('.form-field');
+    if (!wrapper) return;
+
+    // Initialize filled state
+    if (field.value && field.value.trim() !== '') wrapper.classList.add('filled');
+
+    field.addEventListener('focus', () => {
+      wrapper.classList.add('focused');
+    });
+
+    field.addEventListener('blur', () => {
+      wrapper.classList.remove('focused');
+      if (field.value && field.value.trim() !== '') wrapper.classList.add('filled');
+      else wrapper.classList.remove('filled');
+    });
+
+    field.addEventListener('input', () => {
+      if (field.value && field.value.trim() !== '') wrapper.classList.add('filled');
+      else wrapper.classList.remove('filled');
+    });
+  });
+});
+
 // Run shake on page load
 window.addEventListener("load", () => {
   const icons = document.querySelectorAll(".contact-social-media a");
@@ -637,6 +713,30 @@ const portfolioObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 });
 
 portfolioBoxes.forEach(box => portfolioObserver.observe(box));
+
+
+
+//Career Timeline
+const timelineItems = document.querySelectorAll('.timeline-item');
+
+if (timelineItems.length > 0) {
+  const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const item = entry.target;
+
+      if (entry.isIntersecting) {
+        item.classList.add('animate-timeline');
+      } else {
+        item.classList.remove('animate-timeline');
+      }
+    });
+  }, { threshold: 0.35 });
+
+  timelineItems.forEach((item, index) => {
+    item.style.transitionDelay = `${index * 120}ms`;
+    timelineObserver.observe(item);
+  });
+}
 
 
 

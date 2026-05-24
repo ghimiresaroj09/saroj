@@ -107,6 +107,7 @@
     <nav class="navbar" id="navbar">
       <a href="#home" class="nav-link" title="Go to Home section">HOME</a>
       <a href="#about" class="nav-link" title="Learn more About Me">ABOUT ME</a>
+      <a href="#timeline" class="nav-link" title="View my Career Timeline">TIMELINE</a>
       <a href="#services" class="nav-link" title="View My Services">SERVICES</a>
       <a href="#portfolio" class="nav-link" title="See My Projects">PROJECTS</a>
       <a href="#gallery" class="nav-link" title="View My Certifications">CERTIFICATIONS</a>
@@ -206,6 +207,68 @@
     </div>
   </section>
 
+  <!--Career Timeline Section Design-->
+  <section class="timeline-section" id="timeline">
+    <h2 class="heading">Career <span>Timeline</span></h2>
+    <p class="timeline-subtitle">A visual journey of growth, learning, and hands-on QA experience.</p>
+    <div class="timeline-controls">
+      <button class="timeline-filter active" data-filter="all">All</button>
+      <button class="timeline-filter" data-filter="work">Work Experience</button>
+      <button class="timeline-filter" data-filter="academics">Academics</button>
+    </div>
+
+    <div class="timeline-track">
+      <article class="timeline-item right" data-category="work">
+        <div class="timeline-card">
+          <div class="timeline-media">
+            <img src="assets/Dome.png" alt="Saroj Ghimire quality analyst image" title="Career milestone" loading="lazy" />
+          </div>
+          <span class="timeline-date">Feb 2025 - Present</span>
+          <h3>Associate QA</h3>
+          <h4>Dome Infosys — New Baneshwor, Kathmandu</h4>
+          <p class="timeline-paragraph">Executed independent manual testing for web and mobile apps across ERP, e‑commerce, job portals, education platforms, women’s healthcare, and doctor–patient systems; documented defects with reproduction steps and evidence; performed regression testing during releases; and collaborated with developers for clarification, retesting, and production validation.</p>
+        </div>
+      </article>
+      
+      <!-- Academic Items -->
+      <article class="timeline-item left" data-category="academics">
+        <div class="timeline-card">
+          <div class="timeline-media">
+            <img src="assets/Texas.png" alt="Texas College of Management &amp; IT" title="Texas College of Management &amp; IT" loading="lazy" />
+          </div>
+          <span class="timeline-date">Dec 2021 - May 2025</span>
+          <h3>Texas College of Management &amp; IT</h3>
+          <h4>Bachelor of Information Technology (BIT) — Mitrapark, Kathmandu</h4>
+          <p>Bachelor of Information Technology program covering software development, databases, networking, and foundational IT skills.</p>
+        </div>
+      </article>
+
+      <article class="timeline-item right" data-category="academics">
+        <div class="timeline-card">
+          <div class="timeline-media">
+            <img src="assets/JMC.png" alt="Jaya Multiple Campus" title="Jaya Multiple Campus" loading="lazy" />
+          </div>
+          <span class="timeline-date">Jul 2019 - Sep 2021</span>
+          <h3>Jaya Multiple Campus</h3>
+          <h4>+2, Science — Makalbari, Kathmandu</h4>
+          <p>Completed +2 (Science) with coursework in physics, chemistry, and mathematics.</p>
+        </div>
+      </article>
+
+      <article class="timeline-item left" data-category="academics">
+        <div class="timeline-card">
+          <div class="timeline-media">
+            <img src="assets/MESS.png" alt="Mount Everest Secondary School" title="Mount Everest Secondary School" loading="lazy" />
+          </div>
+          <span class="timeline-date">Apr 2006 - Mar 2019</span>
+          <h3>Mount Everest Secondary School</h3>
+          <h4>SEE — Thali, Kathmandu</h4>
+          <p>Completed School Leaving Certificate (SEE) with a broad foundation across core subjects.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <!--Services Section Design-->
   <section class="services" id="services">
     <h2 class="heading">My <span>Services</span></h2>
@@ -238,6 +301,14 @@
         <h3>Performance Testing</h3>
         <p>Conduct performance and load testing using JMeter to analyze system stability, speed, and scalability,
           ensuring applications perform efficiently under high user loads.</p>
+      </div>
+
+      <div class="service-box">
+        <i class="fa-solid fa-mobile-screen-button"></i>
+        <h3>App Testing</h3>
+        <p>Test native, hybrid, and mobile web applications across devices and emulators to ensure compatibility,
+          responsiveness, and functional correctness. Performs UI, compatibility, and regression checks on mobile
+          platforms to deliver consistent user experiences.</p>
       </div>
 
 
@@ -471,9 +542,21 @@
       <div class="contact-form">
         <h2>Leave a message</h2>
         <form action="https://formspree.io/f/mjkywbjr" method="POST">
-          <input type="text" name="name" placeholder="Full Name" required /><br />
-          <input type="email" name="email" placeholder="Email Address" required /><br />
-          <textarea name="message" placeholder="Leave a message here" required></textarea><br /><br /><br />
+          <div class="form-field">
+            <input id="contact-name" type="text" name="name" required aria-required="true" />
+            <label for="contact-name">Full Name</label>
+          </div>
+
+          <div class="form-field">
+            <input id="contact-email" type="email" name="email" required aria-required="true" />
+            <label for="contact-email">Email Address</label>
+          </div>
+
+          <div class="form-field textarea-field">
+            <textarea id="contact-message" name="message" rows="5" required aria-required="true"></textarea>
+            <label for="contact-message">Leave a message here</label>
+          </div>
+
           <button type="submit" class="btn">Send Message</button>
         </form>
       </div>
@@ -481,11 +564,71 @@
   </section>
 
   <!-- Footer Section -->
-  <footer class="footer">
-    <p>&copy;
-      <script>document.write(new Date().getFullYear())</script>
-      Saroj Ghimire – QA Engineer Portfolio. All rights reserved.
-    </p>
+  <footer class="footer" itemscope itemtype="https://schema.org/Person" aria-label="Footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-about">
+          <a href="#home" class="footer-logo" aria-label="Go to Home">
+            <img src="assets/Portfolio logo.png" alt="Saroj Ghimire Logo" />
+          </a>
+          <p>
+            <span itemprop="name" class="visually-hidden">Saroj Ghimire</span>
+            <meta itemprop="jobTitle" content="QA Engineer" />
+            <a href="/" itemprop="url" class="visually-hidden">https://www.ghimiresaroj09.com.np</a>
+            <span itemprop="description">Quality-focused QA Engineer specializing in automation, API, and performance testing. Helping teams deliver reliable software with confidence.</span>
+          </p>
+        </div>
+
+        <div class="footer-links" aria-label="Services">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#services">Manual Testing</a></li>
+            <li><a href="#services">Automation Testing</a></li>
+            <li><a href="#services">API Testing</a></li>
+            <li><a href="#services">Performance Testing</a></li>
+            <li><a href="#services">App Testing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links" aria-label="Quick Links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#timeline">Timeline</a></li>
+            <li><a href="#portfolio">Projects</a></li>
+            <li><a href="#gallery">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-contact" aria-label="Contact" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+          <h3>Contact</h3>
+          <ul class="footer-contact-list">
+            <li><i class="fa-solid fa-phone" aria-hidden="true"></i> <a href="tel:+9779843951178" itemprop="telephone" aria-label="Call Saroj Ghimire" title="Call Saroj Ghimire">+977 9843951178</a></li>
+            <li><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:ghimires090@gmail.com" itemprop="email" aria-label="Email Saroj Ghimire" title="Email Saroj Ghimire">ghimires090@gmail.com</a></li>
+            <li>
+              <i class="fa-solid fa-map-marker-alt" aria-hidden="true"></i>
+              <span class="location" itemprop="addressLocality">Kathmandu</span>,
+              <span class="country" itemprop="addressCountry"> Nepal</span>
+            </li>
+          </ul>
+
+          <div class="footer-social" aria-label="Social media links">
+            <a href="https://www.facebook.com/sarojghimire090" target="_blank" rel="noopener noreferrer" title="Facebook" itemprop="sameAs"><i class="fa-brands fa-facebook"></i><span class="sr-only">Facebook</span></a>
+            <a href="https://www.instagram.com/ghimire_saroj09/" target="_blank" rel="noopener noreferrer" title="Instagram" itemprop="sameAs"><i class="fa-brands fa-instagram"></i><span class="sr-only">Instagram</span></a>
+            <a href="https://x.com/SG_CFC02CL" target="_blank" rel="noopener noreferrer" title="X (Twitter)" itemprop="sameAs"><i class="fa-brands fa-x-twitter"></i><span class="sr-only">X</span></a>
+            <a href="https://www.linkedin.com/in/ghimire-saroj/" target="_blank" rel="noopener noreferrer" title="LinkedIn" itemprop="sameAs"><i class="fa-brands fa-linkedin"></i><span class="sr-only">LinkedIn</span></a>
+            <a href="https://github.com/ghimiresaroj09" target="_blank" rel="noopener noreferrer" title="GitHub" itemprop="sameAs"><i class="fa-brands fa-github"></i><span class="sr-only">GitHub</span></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="footer-year"></span> Saroj Ghimire. All rights reserved.</p>
+      </div>
+    </div>
+    <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
   </footer>
 
   <div class="cursor"></div>
@@ -502,17 +645,9 @@
       <i class="fa-solid fa-user"></i>
       <span>About</span>
     </a>
-    <a href="#services" class="bottom-nav-link" data-section="services" title="Services">
-      <i class="fa-solid fa-briefcase"></i>
-      <span>Services</span>
-    </a>
     <a href="#portfolio" class="bottom-nav-link" data-section="portfolio" title="Projects">
       <i class="fa-solid fa-folder"></i>
       <span>Projects</span>
-    </a>
-    <a href="#gallery" class="bottom-nav-link" data-section="gallery" title="Certifications">
-      <i class="fa-solid fa-certificate"></i>
-      <span>Certifications</span>
     </a>
     <a href="#contact" class="bottom-nav-link" data-section="contact" title="Contact">
       <i class="fa-solid fa-envelope"></i>
