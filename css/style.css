@@ -2107,61 +2107,6 @@ span {
     /* Adjust size as needed */
   }
 
-  /* Reduce motion on mobile: keep intro, typing, and carousel, but disable heavy scroll effects */
-  body::before,
-  .home::before,
-  .spin-container,
-  .shape,
-  .bd,
-  .about-img img,
-  .service-box,
-  .service-box i,
-  .portfolio-box,
-  .portfolio-box *,
-  .timeline-item,
-  .timeline-card,
-  .timeline-card::before,
-  .contact-info p,
-  .contact-info h3,
-  .contact-social-media a,
-  .social-media a,
-  .download_btn,
-  .about-content .btn,
-  .contact-form button,
-  .footer-social a,
-  .footer-links a,
-  .footer-contact-list a,
-  .navbar a,
-  .header,
-  .bottom-nav,
-  .bottom-nav-link,
-  .timeline-filter {
-    animation: none !important;
-    transition-duration: 0s !important;
-  }
-
-  .service-box,
-  .portfolio-box,
-  .timeline-item,
-  .timeline-card,
-  .about-img img,
-  .contact-info p,
-  .contact-info h3,
-  .contact-social-media a,
-  .social-media a,
-  .download_btn,
-  .about-content .btn,
-  .contact-form button,
-  .footer-social a,
-  .footer-links a,
-  .footer-contact-list a,
-  .navbar a,
-  .bottom-nav-link,
-  .timeline-filter {
-    transform: none !important;
-    box-shadow: none !important;
-  }
-
 }
 
 @media (max-width: 480px) {
@@ -2801,99 +2746,78 @@ span {
   pointer-events: none !important;
 }
 
-/* Shorter two-column footer on narrow phones to reduce vertical length */
 @media (max-width: 420px) {
   .footer {
-    padding: 1.6rem 3%;
-    padding-bottom: calc(1.6rem + 6rem);
+    padding: 2.2rem 4%;
+    padding-bottom: calc(2.2rem + 7rem); /* keep space for bottom-nav */
+    border-radius: 1rem;
   }
 
-  /* Two columns: left for links, right for contact + social */
   .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 0.6rem;
-    align-items: start;
-    text-align: left;
-  }
-
-  .footer-about {
-    grid-column: 1 / -1;
-    margin-bottom: 0.4rem;
-  }
-
-  .footer-about p {
-    font-size: 1.15rem;
-    margin-bottom: 0.6rem;
-  }
-
-  .footer-links {
-    padding-right: 0.6rem;
-  }
-
-  /* Hide the Services column on narrow phones to save vertical space */
-  .footer-links[aria-label="Services"] {
-    display: none;
-  }
-
-  .footer-links ul {
-    display: grid;
     grid-template-columns: 1fr;
-    gap: 0.3rem;
-  }
-
-  .footer-contact {
-    padding-left: 0.6rem;
-  }
-
-  .footer-contact-list {
-    font-size: 1.2rem;
-  }
-
-  .footer-social {
-    justify-content: flex-start;
-    gap: 0.5rem;
-    margin-top: 0.4rem;
-  }
-
-  .footer-bottom {
-    grid-column: 1 / -1;
-    padding-top: 1rem;
-    font-size: 1.05rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
+    gap: 1rem;
     align-items: center;
   }
 
   .footer-about img {
-    height: 72px;
+    height: 80px;
+    margin: 0 auto 0.8rem;
+  }
+
+  .footer-about p {
+    font-size: 1.3rem;
+  }
+
+  .footer-links h3,
+  .footer-contact h3 {
+    text-align: center;
+  }
+
+  .footer-links ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .footer-links li {
+    margin: 0;
+  }
+
+  .footer-contact-list {
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+  }
+
+  .footer-social {
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 0.6rem;
+  }
+
+  .footer-social a {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    padding: 0.2rem;
+  }
+
+  .footer-bottom {
+    gap: 0.6rem;
+    font-size: 1.15rem;
+  }
+
+  .footer a {
+    padding: 6px 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
-/* Very small screens: show only copyright line in footer */
 @media (max-width: 480px) {
   .footer {
-    padding: 1rem 2%;
-    padding-bottom: calc(1rem + 6.5rem);
-  }
-
-  /* Hide main footer grid content to save space */
-  .footer-grid {
-    display: none !important;
-  }
-
-  /* Show only footer-bottom paragraph (copyright) */
-  .footer-bottom {
-    display: block !important;
-    text-align: center;
-    padding-top: 0.6rem;
-  }
-
-  .footer-bottom p { display: none !important; }
-  .footer-bottom p:first-child {
-    display: block !important;
-    color: var(--text-color) !important;
-    font-size: 1.05rem !important;
-    margin: 0 auto !important;
+    padding: 1.8rem 3%;
   }
 }
