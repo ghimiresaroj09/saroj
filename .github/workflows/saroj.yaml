@@ -13,15 +13,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # Replace this with your actual build later
+
       - name: Build Personal Portfolio
         run: |
           echo "Building Personal Portfolio..."
           sleep 5
           echo "Build Successful"
+
+
+      # Temporary Debug Step
+      - name: Check Automation Token Access
+        env:
+          GITHUB_TOKEN: ${{ secrets.AUTOMATION_TOKEN }}
+        run: |
+          echo "Checking access to Genkins-Practise repository..."
+
+          curl --fail \
+          -H "Accept: application/vnd.github+json" \
+          -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+          https://api.github.com/repos/ghimiresaroj09/Genkins-Practise
+
 
       - name: Trigger Selenium Automation
         env:
@@ -41,6 +56,7 @@ jobs:
                 "actor":"${{ github.actor }}"
               }
             }'
+
 
       - name: Trigger Successful
         run: echo "Automation repository has been triggered successfully."
