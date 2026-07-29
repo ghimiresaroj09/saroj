@@ -1,0 +1,46 @@
+name: Build and Trigger Selenium
+
+on:
+  push:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+jobs:
+  build-and-trigger:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Replace this with your actual build later
+      - name: Build Personal Portfolio
+        run: |
+          echo "Building Personal Portfolio..."
+          sleep 5
+          echo "Build Successful"
+
+      - name: Trigger Selenium Automation
+        env:
+          GITHUB_TOKEN: ${{ secrets.AUTOMATION_TOKEN }}
+        run: |
+          curl --fail -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${GITHUB_TOKEN}" \
+            https://api.github.com/repos/ghimiresaroj09/Genkins-Practise/dispatches \
+            -d '{
+              "event_type":"run-selenium",
+              "client_payload":{
+                "application":"Personal Portfolio",
+                "repository":"${{ github.repository }}",
+                "branch":"${{ github.ref_name }}",
+                "commit":"${{ github.sha }}",
+                "actor":"${{ github.actor }}"
+              }
+            }'
+
+      - name: Trigger Successful
+        run: echo "Automation repository has been triggered successfully."
