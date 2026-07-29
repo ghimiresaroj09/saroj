@@ -764,7 +764,7 @@ serviceBoxes.forEach(box => serviceObserver.observe(box));
 
 
 //About Image
-const aboutImg = document.querySelector('.about-img img');
+const aboutImg = document.querySelector('.about-img > img');
 
 const imgObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
