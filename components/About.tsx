@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FaPaperPlane, FaArrowRight } from "react-icons/fa6";
 import { aboutStats, aboutRoles } from "@/lib/data";
+import { assetPath } from "@/lib/assetPath";
 import Typewriter from "./Typewriter";
 
 export default function About() {
@@ -18,7 +19,7 @@ export default function About() {
         </svg>
         <div className="about-img">
           <Image
-            src="/assets/Profile/about.jpg"
+            src={assetPath("/assets/Profile/about.jpg")}
             alt="Saroj Ghimire portrait"
             width={480}
             height={480}

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { navLinks } from "@/lib/data";
+import { assetPath } from "@/lib/assetPath";
 import { useActiveSection } from "./useActiveSection";
 
 const sectionIds = navLinks.map((l) => l.id);
@@ -33,7 +34,7 @@ export default function Header() {
       <Link href="/" className="logo-link" aria-label="Go to the home section">
         <Image
           className="logo"
-          src="/assets/logo-sg.png"
+          src={assetPath("/assets/logo-sg.png")}
           alt="Saroj Ghimire portfolio logo"
           width={130}
           height={130}

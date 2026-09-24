@@ -1,8 +1,12 @@
 /**
  * Single source of truth for the canonical site origin.
  * Set NEXT_PUBLIC_SITE_URL in production (no trailing slash).
+ * Defaults to custom domain, falls back to GitHub Pages URL if needed.
  */
-const raw = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.ghimiresaroj09.com.np";
+const raw = process.env.NEXT_PUBLIC_SITE_URL ?? 
+  (process.env.NODE_ENV === "production" 
+    ? "https://ghimiresaroj09.github.io/my-portfolio"
+    : "http://localhost:3000");
 export const SITE_URL = raw.replace(/\/+$/, "");
 
 export const SITE_NAME = "Saroj Ghimire";
