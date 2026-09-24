@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { navLinks, person, socials } from "@/lib/data";
+import { assetPath } from "@/lib/assetPath";
 
 /** Minimal header/footer for inner pages (no scroll-spy, real links back to home sections). */
 export default function SubpageShell({ children }: { children: React.ReactNode }) {
@@ -8,7 +9,7 @@ export default function SubpageShell({ children }: { children: React.ReactNode }
     <>
       <header className="header header--static">
         <Link href="/" className="logo-link" aria-label="Saroj Ghimire, back to home">
-          <Image className="logo" src="/assets/logo-sg.png" alt="Saroj Ghimire portfolio logo" width={130} height={130} priority />
+          <Image className="logo" src={assetPath("/assets/logo-sg.png")} alt="Saroj Ghimire portfolio logo" width={130} height={130} priority />
         </Link>
         <nav className="navbar" aria-label="Primary navigation">
           {navLinks.map((link) => (

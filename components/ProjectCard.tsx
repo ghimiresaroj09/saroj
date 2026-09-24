@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Project } from "@/lib/data";
+import { assetPath } from "@/lib/assetPath";
 import { projectDescription } from "@/lib/seo";
 import { typeLabel } from "@/lib/projects";
 
@@ -10,7 +11,7 @@ export default function ProjectCard({ project, heading = "h3" }: { project: Proj
     <article className={`project-card${project.type === "app" ? " project-card--app" : ""}`}>
       <Link href={`/projects/${project.slug}`} className="project-card-media" aria-hidden="true" tabIndex={-1}>
         <Image
-          src={project.image}
+          src={assetPath(project.image)}
           alt=""
           width={project.type === "app" ? 390 : 800}
           height={project.type === "app" ? 844 : 500}

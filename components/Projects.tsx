@@ -15,6 +15,7 @@ import {
   FaFileLines,
 } from "react-icons/fa6";
 import { projects, type Project, type ProjectType } from "@/lib/data";
+import { assetPath } from "@/lib/assetPath";
 import SectionHeading from "./SectionHeading";
 
 const categoryIcons: Record<string, React.ComponentType> = {
@@ -76,7 +77,7 @@ export function LaptopMockup({ project }: { project: Project }) {
           {slides.map((src, i) => (
             <Image
               key={src}
-              src={src}
+              src={assetPath(src)}
               alt=""
               width={800}
               height={500}
@@ -109,7 +110,7 @@ export function PhoneMockup({ project }: { project: Project }) {
         <div className={`phone phone--${i === 0 ? "back" : "front"}`} key={src + i}>
           <span className="phone-island" />
           <div className="phone-screen">
-            <Image src={src} alt="" width={390} height={844} sizes="(max-width: 992px) 45vw, 20vw" />
+            <Image src={assetPath(src)} alt="" width={390} height={844} sizes="(max-width: 992px) 45vw, 20vw" />
           </div>
         </div>
       ))}
@@ -128,7 +129,7 @@ export function ProjectVisual({ project: p }: { project: Project }) {
           <div className="phone phone--side" aria-hidden="true">
             <span className="phone-island" />
             <div className="phone-screen">
-              <Image src={p.phoneImage} alt="" width={390} height={844} sizes="12vw" />
+              <Image src={assetPath(p.phoneImage)} alt="" width={390} height={844} sizes="12vw" />
             </div>
           </div>
         </div>

@@ -7,6 +7,7 @@ import ProjectCard from "@/components/ProjectCard";
 import SubpageShell from "@/components/SubpageShell";
 import { ProjectJsonLd } from "@/components/JsonLd";
 import { ProjectVisual } from "@/components/Projects";
+import { assetPath } from "@/lib/assetPath";
 import { getAllSlugs, getProject, getRelatedProjects, typeLabel } from "@/lib/projects";
 import { getProjectMetadata } from "@/lib/seo";
 

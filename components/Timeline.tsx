@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { timeline, type TimelineCategory } from "@/lib/data";
+import { assetPath } from "@/lib/assetPath";
 import SectionHeading from "./SectionHeading";
 
 type Filter = "all" | TimelineCategory;
@@ -87,7 +88,7 @@ export default function Timeline() {
           >
             <div className="timeline-card">
               <div className="timeline-media">
-                <Image src={item.image} alt={item.alt} width={66} height={66} />
+                <Image src={assetPath(item.image)} alt={item.alt} width={66} height={66} />
               </div>
               <time className="timeline-date" dateTime={item.dateTime}>
                 {item.date}

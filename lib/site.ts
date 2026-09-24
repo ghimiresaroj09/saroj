@@ -5,7 +5,7 @@
  */
 const raw = process.env.NEXT_PUBLIC_SITE_URL ?? 
   (process.env.NODE_ENV === "production" 
-    ? "https://ghimiresaroj09.github.io/my-portfolio"
+    ? "https://ghimiresaroj09.github.io"
     : "http://localhost:3000");
 export const SITE_URL = raw.replace(/\/+$/, "");
 

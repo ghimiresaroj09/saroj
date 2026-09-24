@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FaArrowRight, FaDownload } from "react-icons/fa6";
 import { person } from "@/lib/data";
+import { assetPath } from "@/lib/assetPath";
 import SocialLinks from "./SocialLinks";
 
 export default function Hero() {
@@ -39,7 +40,7 @@ export default function Hero() {
 
       <div className="home-img">
         <Image
-          src="/assets/Profile/hero.png"
+          src={assetPath("/assets/Profile/hero.png")}
           alt="Saroj Ghimire"
           width={966}
           height={939}
@@ -49,9 +50,9 @@ export default function Hero() {
         />
         <div className="home-note" aria-hidden="true">
           <span className="home-note-text">
-            Better Code
+            No more
             <br />
-            Better Tomorrow
+            “Faaaahhh!” moments.
           </span>
           <svg className="home-note-arrow" viewBox="0 0 90 70" fill="none">
             <path

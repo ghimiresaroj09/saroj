@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { skills } from "@/lib/data";
+import { assetPath } from "@/lib/assetPath";
 import SectionHeading from "./SectionHeading";
 
 export default function Skills() {
@@ -16,7 +17,7 @@ export default function Skills() {
           {[0, 1].map((copy) =>
             skills.map((s) => (
               <li className="skill-chip" key={`${copy}-${s.name}`} aria-hidden={copy === 1 ? "true" : undefined}>
-                <Image src={s.image} alt="" width={56} height={56} aria-hidden="true" />
+                <Image src={assetPath(s.image)} alt="" width={56} height={56} aria-hidden="true" />
                 <span>{s.name}</span>
               </li>
             )),
