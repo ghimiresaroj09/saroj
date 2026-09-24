@@ -40,15 +40,20 @@ export default function Timeline() {
       }
     );
 
-    // Observe all timeline items
-    if (trackRef.current) {
-      const timelineItems = trackRef.current.querySelectorAll(".timeline-item");
-      timelineItems.forEach((item) => {
-        observer.observe(item);
-      });
-    }
+    // Small delay to ensure DOM is ready
+    const timer = setTimeout(() => {
+      if (trackRef.current) {
+        const timelineItems = trackRef.current.querySelectorAll(".timeline-item");
+        timelineItems.forEach((item) => {
+          observer.observe(item);
+        });
+      }
+    }, 50);
 
-    return () => observer.disconnect();
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
   }, [items.length, filter]);
 
   return (
