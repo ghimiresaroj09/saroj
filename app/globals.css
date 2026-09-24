@@ -339,7 +339,7 @@ span {
 /* Handwritten note beside the hero portrait */
 .home-note {
   position: absolute;
-  right: 0;
+  right: -5%;
   top: 42%;
   display: flex;
   flex-direction: column;
