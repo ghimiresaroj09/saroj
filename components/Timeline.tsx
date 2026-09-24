@@ -17,11 +17,19 @@ const filters: { value: Filter; label: string }[] = [
 export default function Timeline() {
   const [filter, setFilter] = useState<Filter>("all");
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
+  const [isClient, setIsClient] = useState(false);
   const trackRef = useRef<HTMLDivElement>(null);
 
   const items = timeline.filter((t) => filter === "all" || t.category === filter);
 
+  // Set client-side flag
   useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient) return;
+
     // Reset visible items when filter changes
     setVisibleItems(new Set());
 
@@ -36,25 +44,29 @@ export default function Timeline() {
       },
       {
         threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
+        rootMargin: "0px 0px -100px 0px",
       }
     );
 
-    // Small delay to ensure DOM is ready
-    const timer = setTimeout(() => {
-      if (trackRef.current) {
-        const timelineItems = trackRef.current.querySelectorAll(".timeline-item");
-        timelineItems.forEach((item) => {
-          observer.observe(item);
-        });
-      }
-    }, 50);
+    // Immediate check for items already in viewport
+    if (trackRef.current) {
+      const timelineItems = trackRef.current.querySelectorAll(".timeline-item");
+      timelineItems.forEach((item, index) => {
+        const rect = item.getBoundingClientRect();
+        const isInViewport = rect.top < window.innerHeight && rect.bottom > 0;
+        
+        if (isInViewport) {
+          setVisibleItems((prev) => new Set(prev).add(index));
+        }
+        
+        observer.observe(item);
+      });
+    }
 
     return () => {
-      clearTimeout(timer);
       observer.disconnect();
     };
-  }, [items.length, filter]);
+  }, [items.length, filter, isClient]);
 
   return (
     <section className="timeline-section" id="timeline">
@@ -84,6 +96,7 @@ export default function Timeline() {
           <article
             key={`${item.title}-${filter}`}
             data-index={i}
+            data-animate={isClient ? "true" : "false"}
             className={`timeline-item ${i % 2 === 0 ? "right" : "left"}${
               visibleItems.has(i) ? " timeline-item-visible" : ""
             }`}
