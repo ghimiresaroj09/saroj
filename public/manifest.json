@@ -1,25 +1,24 @@
 {
-  "name": "Saroj Ghimire | QA Engineer",
+  "name": "Saroj Ghimire - QA Engineer Portfolio",
   "short_name": "Saroj Ghimire",
-  "description": "Portfolio of Saroj Ghimire, QA Engineer in Nepal specializing in manual and automated testing with Selenium, Python, PyTest, Postman, and JMeter.",
-  "id": "/",
+  "description": "Professional QA Engineer specializing in test automation, API testing, and performance testing",
   "start_url": "/",
-  "scope": "/",
   "display": "standalone",
-  "orientation": "portrait",
   "background_color": "#ffffff",
   "theme_color": "#2563eb",
-  "lang": "en",
-  "dir": "ltr",
-  "categories": ["portfolio", "business", "productivity"],
+  "orientation": "portrait-primary",
+  "categories": ["business", "productivity", "technology"],
   "icons": [
-    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
-    { "src": "/icons/maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
-    { "src": "/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
-  ],
-  "shortcuts": [
-    { "name": "Projects", "url": "/#portfolio", "description": "View tested projects" },
-    { "name": "Contact", "url": "/#contact", "description": "Get in touch" }
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
   ]
 }
