@@ -21,7 +21,7 @@ export const DEFAULT_TITLE =
 export const DEFAULT_DESCRIPTION =
   "Professional QA Engineer with 1.5+ years of experience in software testing, test automation, API testing, and performance testing. Skilled in Selenium WebDriver, Python, Pytest, Postman, JMeter, and CI/CD. Based in Kathmandu, Nepal.";
 
-export const DEFAULT_OG_IMAGE = "/og-image.png?v=2";
+export const DEFAULT_OG_IMAGE = "/assets/logo-sg.png?v=2";
 
 export const TWITTER_HANDLE = "@SG_CFC02CL";
 
