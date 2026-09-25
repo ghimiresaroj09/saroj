@@ -13,7 +13,7 @@ export const SITE_NAME = "Saroj Ghimire";
 export const DEFAULT_TITLE = "Saroj Ghimire | QA Engineer & Test Automation Specialist in Nepal";
 export const DEFAULT_DESCRIPTION =
   "Professional QA Engineer with 2+ years experience in software testing, test automation, API testing, and performance testing. Expert in Selenium WebDriver, Python, Pytest, Postman, JMeter, and CI/CD. Based in Kathmandu, Nepal.";
-export const DEFAULT_OG_IMAGE = "/og-image.png";
+export const DEFAULT_OG_IMAGE = "/og-image.png?v=2";
 export const TWITTER_HANDLE = "@SG_CFC02CL";
 export const KEYWORDS = [
   "QA Engineer Nepal",
