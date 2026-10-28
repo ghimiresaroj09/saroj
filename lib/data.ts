@@ -41,7 +41,7 @@ export const socials: { key: SocialKey; label: string; href: string }[] = [
 ];
 
 export const aboutStats = [
-  { value: "1+", label: "Experience" },
+  { value: "1.5+", label: "Experience" },
   { value: "10+", label: "Projects" },
   { value: "1000+", label: "Bugs Found" },
 ];
@@ -69,9 +69,20 @@ export const timeline: TimelineEntry[] = [
     dateTime: "2025-02",
     date: "Feb 2025 - Present",
     title: "Associate QA",
-    subtitle: "Dome Infosys, New Baneshwor, Kathmandu",
+    subtitle: "Dome Infosys, Gausala, Kathmandu",
     description:
       "Executed independent manual testing for web and mobile apps across ERP, e-commerce, job portals, education platforms, women's healthcare, and doctor-patient systems; documented defects with reproduction steps and evidence; performed regression testing during releases; and collaborated with developers for clarification, retesting, and production validation.",
+  },
+  {
+    category: "work",
+    image: "/assets/Zukti.png",
+    alt: "Zukti Tech logo",
+    dateTime: "2024-07",
+    date: "Jul 2024 - Oct 2024",
+    title: "Backend & QA Intern",
+    subtitle: "Zukti Tech Pvt. Ltd., Kathmandu, Nepal",
+    description:
+      "Gained hands-on experience in Python, Django, HTML, CSS, and SQL through practical development tasks; contributed to backend development and functional testing of a car rental project; identified defects and verified application behavior against requirements; and collaborated with the team to support application development and quality improvements.",
   },
   {
     category: "academics",
@@ -80,7 +91,7 @@ export const timeline: TimelineEntry[] = [
     dateTime: "2021-12",
     date: "Dec 2021 - May 2025",
     title: "Texas College of Management & IT",
-    subtitle: "Bachelor of Information Technology (BIT), Mitrapark, Kathmandu",
+    subtitle: "BIT, Mitrapark, Kathmandu",
     description:
       "Bachelor of Information Technology program covering software development, databases, networking, and foundational IT skills.",
   },
